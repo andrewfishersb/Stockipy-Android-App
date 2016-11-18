@@ -12,6 +12,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 
 Day 1 Specs
+
 user input                | output
 ------------------------- | -------------
 The user enters items in their fridge| In fridge: bananas, corn, pancake mix, onion
