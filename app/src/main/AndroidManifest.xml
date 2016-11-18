@@ -19,7 +19,11 @@
         <activity android:name=".FindRecipe" />
         <activity android:name=".YourRecipes" />
         <activity android:name=".ShoppingList" />
-        <activity android:name=".AddToShoppingList"></activity>
+        <activity android:name=".AddToShoppingList">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.ShoppingList"></meta-data>
+
+        </activity>
     </application>
 
 </manifest>
