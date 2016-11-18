@@ -33,7 +33,13 @@ The user can enter items onto their shopping list| spaghetti, pork, bell peppers
 * Open up android studio
 * go to specific directions and press the launch button and what not specifics for using an emulator vs your own device
 
-
+## Future Goals and Ideas
+* With ingredients on shopping list, swipe to delete or add to the fridge
+* When adding an item use a modal
+* When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
+* Set number of a specific items or cups/tablespoons left of some item (reach goal)
+* suggestion when start typing an ingredient (reach goal) - would be good with API integration
+* categorize recipe cuisine (reach goal)
 
 ## Technologies Used
 
@@ -41,6 +47,12 @@ The user can enter items onto their shopping list| spaghetti, pork, bell peppers
 * Java
 * XML
 * Git
+
+
+## Known Bugs
+* Certain Information does not persist throughout the app as I am currently using ArrayLists instead of FireBase
+
+
 
 ### License
 

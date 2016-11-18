@@ -18,7 +18,8 @@
         <activity android:name=".FridgeStock" />
         <activity android:name=".FindRecipe" />
         <activity android:name=".YourRecipes" />
-        <activity android:name=".ShoppingList"></activity>
+        <activity android:name=".ShoppingList" />
+        <activity android:name=".AddToShoppingList"></activity>
     </application>
 
 </manifest>
