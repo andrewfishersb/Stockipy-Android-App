@@ -23,9 +23,9 @@
         android:id="@+id/shoppingListButton"
         android:background="@color/colorPrimary"
         android:textColor="#ffffff"
-        android:layout_marginTop="134dp"
-        android:layout_below="@+id/findRecipeTextView"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/recipeButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="match_parent"
@@ -33,10 +33,9 @@
         android:text="Find Recipes"
         android:id="@+id/recipeButton"
         android:background="@color/colorAccent"
-        android:layout_below="@+id/shoppingListButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="@color/colorTextIcons" />
+        android:textColor="@color/colorTextIcons"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
@@ -45,20 +44,10 @@
         android:id="@+id/fridgeButton"
         android:background="@color/colorPrimary"
 
+        android:textColor="#ffffff"
         android:layout_below="@+id/recipeButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textColor="#ffffff" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Your Recipes"
-        android:id="@+id/yourRecipeButton"
-        android:layout_below="@+id/fridgeButton"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent"
-        android:textColor="#ffffff" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

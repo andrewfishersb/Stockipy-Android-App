@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.fridgeButton) Button mFridgeButton;
     @Bind(R.id.recipeButton) Button mRecipeButton;
     @Bind(R.id.shoppingListButton) Button mShoppingListButton;
-    @Bind(R.id.yourRecipeButton) Button mYourRecipeButton;
     @Bind(R.id.headerTextView) TextView mHeaderTextView; // Use to add a font later on
 
     @Override
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFridgeButton.setOnClickListener(this);
         mRecipeButton.setOnClickListener(this);
         mShoppingListButton.setOnClickListener(this);
-        mYourRecipeButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -43,10 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v==mShoppingListButton){
             Intent intent = new Intent(MainActivity.this,ShoppingList.class);
-            startActivity(intent);
-        }
-        if(v==mYourRecipeButton){
-            Intent intent = new Intent(MainActivity.this,YourRecipes.class);
             startActivity(intent);
         }
     }

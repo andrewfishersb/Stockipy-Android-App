@@ -13,18 +13,25 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 Day 1 Specs
 
-user input                | output
-------------------------- | -------------
-The user enters items in their fridge| In fridge: bananas, corn, pancake mix, onion
 
-user input                | output
-------------------------- | -------------
-The user enters a recipe, adding on ingredient per click, possibly a section with instructions| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
 
 user input                | output
 ------------------------- | -------------
 The user can enter items onto their shopping list| spaghetti, pork, bell peppers.
 
+
+user input                | output
+------------------------- | -------------
+The user enters items in their fridge| In fridge: bananas, corn, pancake mix, onion
+
+
+user input                | output
+------------------------- | -------------
+user can see a list of recipes and can click on a recipe to see ingredients| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
+
+user input                | output
+------------------------- | -------------
+user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
 
 
 ## Setup/Installation Requirements
@@ -40,6 +47,7 @@ The user can enter items onto their shopping list| spaghetti, pork, bell peppers
 * With ingredients on shopping list, swipe to delete or add to the fridge
 * When adding an item use a modal
 * When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
+* Drop down menu or tool bar that has quick ways to navigate towards
 * Set number of a specific items or cups/tablespoons left of some item (reach goal)
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
 * categorize recipe cuisine (reach goal)
