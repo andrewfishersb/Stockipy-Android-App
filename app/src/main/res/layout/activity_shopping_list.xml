@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add an Item"
-        android:id="@+id/AddToListButton"
+        android:id="@+id/goToAddItemListButton"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -36,5 +36,5 @@
         android:layout_below="@+id/shoppingListTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/AddToListButton" />
+        android:layout_above="@+id/goToAddItemListButton" />
 </RelativeLayout>
