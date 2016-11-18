@@ -35,7 +35,7 @@ public class AddToShoppingList extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        String userInput = mInputNewItem.getText().toString();
+
 
         if(v==mBackToListButton){
             Intent addedItemIntent = new Intent(AddToShoppingList.this,ShoppingList.class);
@@ -44,6 +44,7 @@ public class AddToShoppingList extends AppCompatActivity implements View.OnClick
         }
 
         if(v==mAddItemListButton){
+            String userInput = mInputNewItem.getText().toString();
             if(userInput.equals("")){
                 Toast toast = Toast.makeText(AddToShoppingList.this,"No Item Entered", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0,250);

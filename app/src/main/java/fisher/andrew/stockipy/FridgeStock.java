@@ -31,6 +31,11 @@ public class FridgeStock extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge_stock);
         ButterKnife.bind(this);
+
+        Intent intent = getIntent();
+        if(intent.getExtras()!=null){
+            itemsInFridge = intent.getStringArrayListExtra("fridge-update");
+        }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, itemsInFridge);
         mFridgeListView.setAdapter(adapter);
         mStockFridgeButton.setOnClickListener(this);

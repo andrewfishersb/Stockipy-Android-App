@@ -9,4 +9,42 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="fisher.andrew.stockipy.AddToFridge">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Add Items to Fridge"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fridgeInputEditText"
+        android:hint="Enter item here"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to List of Items"
+        android:id="@+id/backToFridgeButton"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add to Fridge"
+        android:id="@+id/addItemToFridgeButton"
+        android:layout_above="@+id/backToFridgeButton"
+        android:layout_marginBottom="46dp"
+        android:layout_alignRight="@+id/backToFridgeButton"
+        android:layout_alignEnd="@+id/backToFridgeButton"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark" />
+
 </RelativeLayout>

@@ -34,6 +34,7 @@ The user can enter items onto their shopping list| spaghetti, pork, bell peppers
 * go to specific directions and press the launch button and what not specifics for using an emulator vs your own device
 
 ## Future Goals and Ideas
+* make input only one line for new items
 * Remove back to list button once a database is set up and use the up button instead
 * Add items and dont go back until user says so - maybe implement a toolbar so one can send information back
 * With ingredients on shopping list, swipe to delete or add to the fridge
