@@ -1,7 +1,13 @@
 package fisher.andrew.stockipy;
 
-/**
- * Created by Guest on 11/18/16.
- */
-public class YourRecipes {
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
+public class YourRecipes extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_your_recipes);
+    }
 }
