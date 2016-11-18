@@ -30,6 +30,11 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
         ButterKnife.bind(this);
+        Intent intent = getIntent();
+
+        if(intent.getExtras()!=null){
+            shoppingList = intent.getStringArrayListExtra("update-list");
+        }
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
         mShoppingListView.setAdapter(adapter);
