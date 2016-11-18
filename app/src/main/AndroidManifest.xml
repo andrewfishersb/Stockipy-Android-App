@@ -18,7 +18,15 @@
         <activity android:name=".FridgeStock" />
         <activity android:name=".FindRecipe" />
         <activity android:name=".YourRecipes" />
-        <activity android:name=".ShoppingList" />
+        <activity android:name=".ShoppingList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.MainActivity"></meta-data>
+        </activity>
+
+
+
+
         <activity android:name=".AddToShoppingList">
             <meta-data android:name="android.support.PARENT_ACTIVITY"
                 android:value="fisher.andrew.stockipy.ShoppingList"></meta-data>

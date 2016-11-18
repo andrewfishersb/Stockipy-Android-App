@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,17 +36,23 @@ public class AddToShoppingList extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         String userInput = mInputNewItem.getText().toString();
-        if(userInput.equals("")){
-            Toast.makeText(AddToShoppingList.this,"No Item Entered", Toast.LENGTH_SHORT).show();
-        }
+
         if(v==mBackToListButton){
             Intent addedItemIntent = new Intent(AddToShoppingList.this,ShoppingList.class);
             addedItemIntent.putExtra("update-list", addToList);
             startActivity(addedItemIntent);
         }
+
         if(v==mAddItemListButton){
-            addToList.add(userInput);
-            mInputNewItem.setText("");
+            if(userInput.equals("")){
+                Toast toast = Toast.makeText(AddToShoppingList.this,"No Item Entered", Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_HORIZONTAL, 0,250);
+                toast.show();
+            }else{
+                addToList.add(userInput);
+                mInputNewItem.setText("");
+            }
+
         }
 
     }
