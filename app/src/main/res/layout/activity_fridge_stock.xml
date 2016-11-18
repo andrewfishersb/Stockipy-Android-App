@@ -17,4 +17,21 @@
         android:id="@+id/fridgeTextView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stock Fridge"
+        android:id="@+id/stockFridgeButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fridgeListView"
+        android:layout_below="@+id/fridgeTextView"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

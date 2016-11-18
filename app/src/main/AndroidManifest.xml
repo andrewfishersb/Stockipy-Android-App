@@ -15,22 +15,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FridgeStock" />
-        <activity android:name=".FindRecipe" />
-        <activity android:name=".YourRecipes" />
+        <activity android:name=".FridgeStock">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.MainActivity" />
+        </activity>
+        <activity android:name=".FindRecipe">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.MainActivity" />
+        </activity>
         <activity android:name=".ShoppingList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.MainActivity"></meta-data>
+                android:value="fisher.andrew.stockipy.MainActivity" />
         </activity>
-
-
-
-
+        <activity android:name=".YourRecipes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.FindRecipe" />
+        </activity>
         <activity android:name=".AddToShoppingList">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.ShoppingList"></meta-data>
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.ShoppingList" />
+        </activity>
+        <activity android:name=".AddToFridge">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.ShoppingList" />
         </activity>
     </application>
 

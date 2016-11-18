@@ -46,7 +46,7 @@ public class AddToShoppingList extends AppCompatActivity implements View.OnClick
         if(v==mAddItemListButton){
             if(userInput.equals("")){
                 Toast toast = Toast.makeText(AddToShoppingList.this,"No Item Entered", Toast.LENGTH_SHORT);
-                toast.setGravity(Gravity.CENTER_HORIZONTAL|Gravity.CENTER_HORIZONTAL, 0,250);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0,250);
                 toast.show();
             }else{
                 addToList.add(userInput);
