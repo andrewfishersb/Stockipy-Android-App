@@ -28,7 +28,8 @@ public class FindRecipe extends AppCompatActivity implements View.OnClickListene
             "flank Steak\n\nbalsamic vinegar\n\ngarlic clove\n\nTBS Worcestershire Sauce",
             "asparagus\n\nheavy whipping cream\n\ntuna\n\nspaghetti"
     ));
-    private ArrayList<String> favoriteMeals = new ArrayList<String>();
+    private ArrayList<String> favoriteRecipes = new ArrayList<String>();
+    private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
     @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
     @Bind(R.id.recipeListView) ListView mRecipeListView;
     @Override
@@ -39,13 +40,21 @@ public class FindRecipe extends AppCompatActivity implements View.OnClickListene
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,recipes);
         mRecipeListView.setAdapter(adapter);
 
+        Intent intent = getIntent();
+        //check that the intent has materials
+        if(intent.getExtras()!=null){
+            favoriteRecipes = intent.getStringArrayListExtra("recipe-update");
+            favoriteRecipesIngredients = intent.getStringArrayListExtra("ingredients-update");
+        }
+
         mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?>adapterView, View v, int position, long l){
                 Intent intent = new Intent(FindRecipe.this,ViewRecipeActivity.class);
                 intent.putExtra("recipe",recipes.get(position));
                 intent.putExtra("ingredients",ingredients.get(position));
-                intent.putExtra("favorites",favoriteMeals);
+                intent.putExtra("favorites",favoriteRecipes);
+                intent.putExtra("favorite-ingredients",favoriteRecipesIngredients);
                 startActivity(intent);
             }
         });
@@ -55,7 +64,8 @@ public class FindRecipe extends AppCompatActivity implements View.OnClickListene
     @Override
     public void onClick(View v){
         Intent intent = new Intent(FindRecipe.this,YourRecipes.class);
-        intent.putExtra("favorites",favoriteMeals);
+        intent.putExtra("favorites",favoriteRecipes);
+        intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
         startActivity(intent);
     }
 

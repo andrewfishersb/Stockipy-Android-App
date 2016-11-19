@@ -35,6 +35,7 @@ public class FridgeStock extends AppCompatActivity implements View.OnClickListen
         Intent intent = getIntent();
         if(intent.getExtras()!=null){
             itemsInFridge = intent.getStringArrayListExtra("fridge-update");
+
         }
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, itemsInFridge);
         mFridgeListView.setAdapter(adapter);
