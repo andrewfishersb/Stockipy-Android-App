@@ -64,7 +64,7 @@ user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed 
 ## Known Bugs
 * Certain Information does not persist throughout the app as I am currently using ArrayLists instead of FireBase
 * User cant see the ingredients if they are in favorite section
-
+* favorite recipes can repeate themselves
 
 ### License
 
