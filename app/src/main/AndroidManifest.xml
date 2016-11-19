@@ -58,7 +58,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fisher.andrew.stockipy.ShoppingList" />
         </activity>
-        <activity android:name=".ViewRecipeActivity"></activity>
+        <activity android:name=".ViewRecipeActivity"
+            android:label="Back to Recipes">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="fisher.andrew.stockipy.FindRecipe" />
+
+
+        </activity>
     </application>
 
 </manifest>

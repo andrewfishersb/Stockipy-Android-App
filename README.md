@@ -41,9 +41,10 @@ user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed 
 * go to specific directions and press the launch button and what not specifics for using an emulator vs your own device
 
 ## Future Goals and Ideas
+* let user add single ingredients to a cart, they are currently just strings in an array.
 * make input only one line for new items
 * Remove back to list button once a database is set up and use the up button instead
-* Add items and dont go back until user says so - maybe implement a toolbar so one can send information back
+* Add items and don't go back until user says so - maybe implement a toolbar so one can send information back
 * With ingredients on shopping list, swipe to delete or add to the fridge
 * When adding an item use a modal
 * When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
