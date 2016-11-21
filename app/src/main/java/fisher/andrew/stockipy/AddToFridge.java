@@ -1,13 +1,16 @@
 package fisher.andrew.stockipy;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -19,6 +22,9 @@ public class AddToFridge extends AppCompatActivity implements View.OnClickListen
     @Bind(R.id.backToFridgeButton) Button mBackToFridgeButton;
     @Bind(R.id.fridgeInputEditText) EditText mFridgeInputEditText;
     private ArrayList<String> updateItems;
+    private DatabaseReference mAddFridgeItem;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,8 @@ public class AddToFridge extends AppCompatActivity implements View.OnClickListen
         mBackToFridgeButton.setOnClickListener(this);
         Intent intent = getIntent();
         updateItems = intent.getStringArrayListExtra("fridge");
+        mAddFridgeItem = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_ADD_FRIDGE_ITEM);
+
     }
 
     @Override
@@ -45,9 +53,17 @@ public class AddToFridge extends AppCompatActivity implements View.OnClickListen
                 toast.setGravity(Gravity.CENTER_VERTICAL,0,250);
                 toast.show();
             }else{
+                saveItemToFridge(userInput);
+
                 updateItems.add(userInput);
                 mFridgeInputEditText.setText("");
             }
         }
     }
+
+    public void saveItemToFridge(String item){
+        mAddFridgeItem.push().setValue((item));
+    }
+
+
 }
