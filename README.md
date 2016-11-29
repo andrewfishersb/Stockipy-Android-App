@@ -30,7 +30,7 @@ user input                | output
 user can see a list of recipes and can click on a recipe to see ingredients| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
 
 user input                | output
-------------------------- | -------------
+
 user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
 
 
@@ -38,7 +38,10 @@ user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed 
 
 * Clone from github
 * Open up android studio
-* go to specific directions and press the launch button and what not specifics for using an emulator vs your own device
+* plug in your own device or set up an emulator
+* press run, select the device and the app should run
+
+
 
 ## Future Goals and Ideas
 * let user add single ingredients to a cart, they are currently just strings in an array.
