@@ -30,16 +30,16 @@ user input                | output
 user can see a list of recipes and can click on a recipe to see ingredients| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
 
 user input                | output
-
+------------------------- | -------------
 user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
 
 
 ## Setup/Installation Requirements
 
-* Clone from github
-* Open up android studio
-* plug in your own device or set up an emulator
-* press run, select the device and the app should run
+` Clone from github
+ Open up android studio
+ plug in your own device or set up an emulator
+ press run, select the device and the app should run`
 
 
 
