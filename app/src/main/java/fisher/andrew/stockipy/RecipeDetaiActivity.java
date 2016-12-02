@@ -24,7 +24,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_recipe);
+        setContentView(R.layout.activity_recipe_detail);
         ButterKnife.bind(this);
         Intent intent = getIntent();
         String meal = intent.getStringExtra("recipe");
