@@ -3,17 +3,22 @@ package fisher.andrew.stockipy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class SearchRecipeActivity extends AppCompatActivity implements View.OnClickListener{
     private ArrayList<String> recipes = new ArrayList<String>(Arrays.asList(
@@ -59,15 +64,40 @@ public class SearchRecipeActivity extends AppCompatActivity implements View.OnCl
             }
         });
         mFavoriteRecipesButton.setOnClickListener(this);
+        getRecipes("Chicken");
     }
 
     @Override
     public void onClick(View v){
-        Intent intent = new Intent(SearchRecipeActivity.this,YourRecipes.class);
+        Intent intent = new Intent(SearchRecipeActivity.this,YourRecipesActivity.class);
         intent.putExtra("favorites",favoriteRecipes);
         intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
         startActivity(intent);
     }
 
+    public void getRecipes(String query){
+        final RecipeService recipeService = new RecipeService();
+
+        recipeService.findRecipe(query, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try{
+                    String jsonData = response.body().string();
+                    Log.v("Recipe Activity: ", jsonData);
+
+                }catch(IOException e){
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+
+    }
 
 }

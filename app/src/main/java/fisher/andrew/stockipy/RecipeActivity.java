@@ -3,6 +3,7 @@ package fisher.andrew.stockipy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+//Shows a single recipe - fragment will be sent here
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addToFavoritesButton) Button mAddToFavoritesButton;
     @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
@@ -36,7 +38,6 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         mRecipeNameTextView.setText(meal);
         mIngredientsView.setText(ingredients);
         mAddToFavoritesButton.setOnClickListener(this);
-        getRecipes("Chicken");
     }
 
     @Override
@@ -53,21 +54,5 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    public void getRecipes(String query){
-        final RecipeService recipeService = new RecipeService();
 
-        recipeService.findRecipe(query, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                e.printStackTrace();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-            }
-        });
-
-
-    }
 }

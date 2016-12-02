@@ -3,6 +3,7 @@ package fisher.andrew.stockipy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class YourRecipes extends AppCompatActivity {
+//Displays Recipes you have added to a personal list
+public class YourRecipesActivity extends AppCompatActivity {
     @Bind(R.id.favoriteRecipesListView) ListView mFavoriteRecipesListView;
     private ArrayList<String> favoriteRecipes;
     @Override
@@ -26,4 +28,3 @@ public class YourRecipes extends AppCompatActivity {
 
     }
 }
-//favoriteRecipesListView
