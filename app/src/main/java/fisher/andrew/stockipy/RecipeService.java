@@ -56,7 +56,7 @@ public class RecipeService {
                     ArrayList<String> ingredients = new ArrayList<>();
                     JSONArray ingredientList = currentRecipe.getJSONArray("ingredientLines");
                     for(int j = 0; j< ingredientList.length(); j++){
-                        ingredients.add(ingredientList.getJSONArray(j).get(j).toString());
+                        ingredients.add(ingredientList.get(j).toString());
                     }
 
                     Recipe recipe = new Recipe(title,image,url,ingredients,calories,servings);

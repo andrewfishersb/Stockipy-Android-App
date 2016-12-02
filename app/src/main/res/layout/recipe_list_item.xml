@@ -5,9 +5,10 @@
 
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/bear"
+
+            android:layout_width="200dp"
+            android:layout_height="170dp"
+            android:src="@drawable/recipe"
             android:id="@+id/foodImageView" />
 
 
@@ -17,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
+            android:id="@+id/foodTitle"
             android:text="Pork and Bread Crumbs"/>
 
 

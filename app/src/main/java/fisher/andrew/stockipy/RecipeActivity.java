@@ -3,6 +3,8 @@ package fisher.andrew.stockipy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,7 +21,15 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+
+//Will display a recycler view of recipes received from the api
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
+    //definitely keep
+    @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
+    @Bind(R.id.recipesRecyclerView) RecyclerView mRecipesRecyclerView;
+    private ArrayList<String> favoriteRecipes = new ArrayList<String>();
+    private RecipeListAdapter mAdapter;
+
 
 //    private ArrayList<String> recipes = new ArrayList<String>(Arrays.asList(
 //            "Chili",
@@ -34,15 +44,15 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
             "flank Steak\n\nbalsamic vinegar\n\ngarlic clove\n\nTBS Worcestershire Sauce",
             "asparagus\n\nheavy whipping cream\n\ntuna\n\nspaghetti"
     ));
-    private ArrayList<String> favoriteRecipes = new ArrayList<String>();
+
     private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
-    @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,mRecipes);
+//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,mRecipes);
 
         Intent intent = getIntent();
         //check that the intent has materials
@@ -50,6 +60,10 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
             favoriteRecipes = intent.getStringArrayListExtra("recipe-update");
             favoriteRecipesIngredients = intent.getStringArrayListExtra("ingredients-update");
         }
+
+
+
+
 
 //        mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 //            @Override
@@ -64,6 +78,7 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
 //        });
         mFavoriteRecipesButton.setOnClickListener(this);
         getRecipes("Chicken");
+
     }
 
     @Override
@@ -90,7 +105,11 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
                 RecipeActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
+                        mAdapter = new RecipeListAdapter(mRecipes, getApplicationContext());
+                        mRecipesRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeActivity.this);
+                        mRecipesRecyclerView.setLayoutManager(layoutManager);
+                        mRecipesRecyclerView.setHasFixedSize(true);
                     }
                 });
 
