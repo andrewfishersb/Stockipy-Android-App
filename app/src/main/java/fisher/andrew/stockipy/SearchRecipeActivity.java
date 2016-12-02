@@ -50,7 +50,7 @@ public class SearchRecipeActivity extends AppCompatActivity implements View.OnCl
         mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?>adapterView, View v, int position, long l){
-                Intent intent = new Intent(SearchRecipeActivity.this,ViewRecipeActivity.class);
+                Intent intent = new Intent(SearchRecipeActivity.this,RecipeActivity.class);
                 intent.putExtra("recipe",recipes.get(position));
                 intent.putExtra("ingredients",ingredients.get(position));
                 intent.putExtra("favorites",favoriteRecipes);

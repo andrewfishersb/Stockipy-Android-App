@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fisher.andrew.stockipy">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -58,7 +59,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ShoppingListActivity" />
         </activity>
-        <activity android:name=".ViewRecipeActivity"
+        <activity android:name=".RecipeActivity"
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

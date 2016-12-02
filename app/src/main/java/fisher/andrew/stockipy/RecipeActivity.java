@@ -7,12 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
-public class ViewRecipeActivity extends AppCompatActivity implements View.OnClickListener{
+public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addToFavoritesButton) Button mAddToFavoritesButton;
     @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
     @Bind(R.id.ingredientsView) TextView mIngredientsView;
@@ -32,6 +36,7 @@ public class ViewRecipeActivity extends AppCompatActivity implements View.OnClic
         mRecipeNameTextView.setText(meal);
         mIngredientsView.setText(ingredients);
         mAddToFavoritesButton.setOnClickListener(this);
+        getRecipes("Chicken");
     }
 
     @Override
@@ -41,10 +46,28 @@ public class ViewRecipeActivity extends AppCompatActivity implements View.OnClic
         favoriteRecipesIngredients= intent.getStringArrayListExtra("favorite-ingredients");
         favoriteRecipe.add(intent.getStringExtra("recipe"));
         favoriteRecipesIngredients.add(intent.getStringExtra("ingredients"));
-        Intent favoriteIntent = new Intent(ViewRecipeActivity.this,SearchRecipeActivity.class);
+        Intent favoriteIntent = new Intent(RecipeActivity.this,SearchRecipeActivity.class);
         favoriteIntent.putExtra("recipe-update",favoriteRecipe);
         favoriteIntent.putExtra("ingredients-update",favoriteRecipesIngredients);
         startActivity(favoriteIntent);
+
+    }
+
+    public void getRecipes(String query){
+        final RecipeService recipeService = new RecipeService();
+
+        recipeService.findRecipe(query, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
+
 
     }
 }
