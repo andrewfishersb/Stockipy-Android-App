@@ -1,12 +1,22 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.services;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import fisher.andrew.stockipy.Constants;
+import fisher.andrew.stockipy.models.Recipe;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.Response;
 
 public class RecipeService {
 
@@ -26,6 +36,45 @@ public class RecipeService {
         call.enqueue(callback);
 
 
+    }
+
+    public ArrayList<Recipe> proccessResults(Response response){
+        ArrayList<Recipe> allRecipes = new ArrayList<>();
+        try{
+            String jsonData = response.body().string();
+            if(response.isSuccessful()){
+                JSONObject recipeCatalogJSON = new JSONObject(jsonData);
+                JSONArray recipesJSON = recipeCatalogJSON.getJSONArray("hits");
+                for (int i = 0; i<recipesJSON.length();i++){
+                    //gets specific hit
+                    JSONObject recipeJSON = recipesJSON.getJSONObject(i);
+                    //goes into the recipe portion of hit
+                    JSONObject currentRecipe = recipeJSON.getJSONObject("recipe");
+                    String title = currentRecipe.getString("label");
+                    String image = currentRecipe.getString("image");
+                    String url = currentRecipe.getString("url");
+                    int calories = currentRecipe.getInt("calories");
+                    int servings = currentRecipe.getInt("yield");
+
+                    //array of ingredients may use in a recycler view or dialog box later
+                    ArrayList<String> ingredients = new ArrayList<>();
+                    JSONArray ingredientList = currentRecipe.getJSONArray("ingredientLines");
+                    for(int j = 0; j< ingredientList.length(); j++){
+                        ingredients.add(ingredientList.getJSONArray(j).get(j).toString());
+                    }
+
+                    Recipe recipe = new Recipe(title,image,url,ingredients,calories,servings);
+                    allRecipes.add(recipe);
+                }
+
+            }
+
+        }catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+       return allRecipes;
     }
 
 

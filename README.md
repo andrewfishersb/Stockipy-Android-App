@@ -67,8 +67,9 @@ The app will use link the user to the webpage with more information about the re
 * Remove back to list button once a database is set up and use the up button instead
 * Add items and don't go back until user says so - maybe implement a toolbar so one can send information back
 * With ingredients on shopping list, swipe to delete or add to the fridge
-* When adding an item use a modal
+* When adding an item use a dialog on the same activity instead of a new page
 * When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
+* Dialog box which displays all ingredients and check boxes for what to add to your shopping list
 * Drop down menu or tool bar that has quick ways to navigate towards
 * Set number of a specific items or cups/tablespoons left of some item (reach goal)
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
