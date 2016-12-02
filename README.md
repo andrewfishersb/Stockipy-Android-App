@@ -11,7 +11,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 
 
-Day 1 Specs
+### Week 1 Specs
 
 
 
@@ -32,6 +32,21 @@ user can see a list of recipes and can click on a recipe to see ingredients| Ing
 user input                | output
 ------------------------- | -------------
 user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
+
+### Week 2 Specs
+
+user input                | output
+------------------------- | -------------
+The app will request recipe information from an API and list using a Recycler View| BBQ Sandwich, Buffalo Wings, Veggie Burger.
+
+
+user input                | output
+------------------------- | -------------
+The app will use the recipe id to list ingredients| spaghetti, pork, bell peppers.
+
+------------------------- | -------------
+The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
+
 
 
 ## Setup/Installation Requirements
@@ -62,7 +77,9 @@ user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed 
 * Android
 * Java
 * XML
+* Gradle
 * Git
+* Food2Fork API
 
 
 ## Known Bugs
