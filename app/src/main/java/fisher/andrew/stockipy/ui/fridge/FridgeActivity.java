@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.ui.fridge;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
 
 public class FridgeActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.stockFridgeButton) Button mStockFridgeButton;

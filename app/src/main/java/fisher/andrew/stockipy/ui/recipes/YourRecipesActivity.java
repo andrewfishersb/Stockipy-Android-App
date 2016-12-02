@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.ui.recipes;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
 
 //Displays Recipes you have added to a personal list
 public class YourRecipesActivity extends AppCompatActivity {

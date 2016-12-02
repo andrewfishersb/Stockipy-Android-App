@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
+import fisher.andrew.stockipy.ui.fridge.FridgeActivity;
+import fisher.andrew.stockipy.ui.recipes.SearchRecipeActivity;
+import fisher.andrew.stockipy.ui.shopping.ShoppingListActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.fridgeButton) Button mFridgeButton;
