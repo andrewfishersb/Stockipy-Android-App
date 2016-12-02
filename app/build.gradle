@@ -6,10 +6,7 @@ android {
     buildToolsVersion "25.0.0"
     useLibrary 'org.apache.http.legacy'
 
-//    buildTypes.each{
-//        it.buildConfigField 'String', "RECIPE_API_KEY", "EdamamKey"
-//        it.buildConfigField 'String', "RECIPE_API_ID", "EdamamId"
-//    }
+
 
     defaultConfig {
         applicationId "fisher.andrew.stockipy"
