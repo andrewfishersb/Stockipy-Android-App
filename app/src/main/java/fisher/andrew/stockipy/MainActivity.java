@@ -1,18 +1,15 @@
-package fisher.andrew.stockipy.ui;
+package fisher.andrew.stockipy;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import fisher.andrew.stockipy.R;
-import fisher.andrew.stockipy.ui.fridge.FridgeActivity;
-import fisher.andrew.stockipy.ui.recipes.SearchRecipeActivity;
-import fisher.andrew.stockipy.ui.shopping.ShoppingListActivity;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.fridgeButton) Button mFridgeButton;
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if(v==mRecipeButton){
-            Intent intent = new Intent(MainActivity.this,SearchRecipeActivity.class);
+            Intent intent = new Intent(MainActivity.this,RecipeActivity.class);
             startActivity(intent);
         }
         if(v==mShoppingListButton){

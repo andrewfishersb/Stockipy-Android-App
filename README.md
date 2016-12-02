@@ -61,6 +61,7 @@ The app will use link the user to the webpage with more information about the re
 
 
 ## Future Goals and Ideas
+* Make api call on homepage so it doesnt load everytime I press back or find recipe (or on the search page when i create it).
 * If shopping list and fridge list look the same then maybe refractor to be on the same page
 * let user add single ingredients to a cart, they are currently just strings in an array.
 * make input only one line for new items
@@ -70,6 +71,7 @@ The app will use link the user to the webpage with more information about the re
 * When adding an item use a dialog on the same activity instead of a new page
 * When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
 * Dialog box which displays all ingredients and check boxes for what to add to your shopping list
+* when displaying recipes try and use a staggeredgridlayoutmanager
 * Drop down menu or tool bar that has quick ways to navigate towards
 * Set number of a specific items or cups/tablespoons left of some item (reach goal)
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration

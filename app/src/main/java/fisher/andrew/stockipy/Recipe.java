@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy.models;
+package fisher.andrew.stockipy;
 
 import java.util.ArrayList;
 

@@ -1,26 +1,19 @@
-package fisher.andrew.stockipy.ui.recipes;
+package fisher.andrew.stockipy;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import fisher.andrew.stockipy.R;
-import fisher.andrew.stockipy.ui.SearchRecipeActivity;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 //Shows a single recipe - fragment will be sent here
-public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
+public class RecipeDetaiActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addToFavoritesButton) Button mAddToFavoritesButton;
     @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
     @Bind(R.id.ingredientsView) TextView mIngredientsView;
@@ -49,7 +42,7 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         favoriteRecipesIngredients= intent.getStringArrayListExtra("favorite-ingredients");
         favoriteRecipe.add(intent.getStringExtra("recipe"));
         favoriteRecipesIngredients.add(intent.getStringExtra("ingredients"));
-        Intent favoriteIntent = new Intent(RecipeActivity.this,SearchRecipeActivity.class);
+        Intent favoriteIntent = new Intent(RecipeDetaiActivity.this,RecipeActivity.class);
         favoriteIntent.putExtra("recipe-update",favoriteRecipe);
         favoriteIntent.putExtra("ingredients-update",favoriteRecipesIngredients);
         startActivity(favoriteIntent);

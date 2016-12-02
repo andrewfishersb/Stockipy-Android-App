@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy.ui.recipes;
+package fisher.andrew.stockipy;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
