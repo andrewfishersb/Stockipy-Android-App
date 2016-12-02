@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildTypes.each{
+        it.buildConfigField 'String', 'RECIPE_API_KEY',"EdamamKey"
+        it.buildConfigField 'String', 'RECIPE_API_ID', "EdamamId"
+    }
 }
 
 dependencies {

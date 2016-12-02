@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class ViewRecipeActivity extends AppCompatActivity implements View.OnClic
         favoriteRecipesIngredients= intent.getStringArrayListExtra("favorite-ingredients");
         favoriteRecipe.add(intent.getStringExtra("recipe"));
         favoriteRecipesIngredients.add(intent.getStringExtra("ingredients"));
-        Intent favoriteIntent = new Intent(ViewRecipeActivity.this,FindRecipe.class);
+        Intent favoriteIntent = new Intent(ViewRecipeActivity.this,SearchRecipeActivity.class);
         favoriteIntent.putExtra("recipe-update",favoriteRecipe);
         favoriteIntent.putExtra("ingredients-update",favoriteRecipesIngredients);
         startActivity(favoriteIntent);

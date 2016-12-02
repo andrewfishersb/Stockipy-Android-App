@@ -3,7 +3,6 @@ package fisher.andrew.stockipy;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class AddToShoppingList extends AppCompatActivity implements View.OnClickListener{
+public class AddToShoppingListActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addItemListButton) Button mAddItemListButton;
     @Bind(R.id.backToListButton) Button mBackToListButton;;
     @Bind(R.id.inputNewItem) EditText mInputNewItem;
@@ -38,7 +37,7 @@ public class AddToShoppingList extends AppCompatActivity implements View.OnClick
 
 
         if(v==mBackToListButton){
-            Intent addedItemIntent = new Intent(AddToShoppingList.this,ShoppingList.class);
+            Intent addedItemIntent = new Intent(AddToShoppingListActivity.this,ShoppingListActivity.class);
             addedItemIntent.putExtra("update-list", addToList);
             startActivity(addedItemIntent);
         }
@@ -46,7 +45,7 @@ public class AddToShoppingList extends AppCompatActivity implements View.OnClick
         if(v==mAddItemListButton){
             String userInput = mInputNewItem.getText().toString();
             if(userInput.equals("")){
-                Toast toast = Toast.makeText(AddToShoppingList.this,"No Item Entered", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(AddToShoppingListActivity.this,"No Item Entered", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER_VERTICAL, 0,250);
                 toast.show();
             }else{

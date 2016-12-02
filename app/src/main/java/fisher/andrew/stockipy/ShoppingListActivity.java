@@ -14,7 +14,7 @@ import java.util.Arrays;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class ShoppingList extends AppCompatActivity implements View.OnClickListener {
+public class ShoppingListActivity extends AppCompatActivity implements View.OnClickListener {
    @Bind(R.id.shoppingListView) ListView mShoppingListView;
    @Bind(R.id.goToAddItemListButton) Button goToAddItemListButton;
     private ArrayList<String> shoppingList = new ArrayList<String>(Arrays.asList(
@@ -47,7 +47,7 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v){
-        Intent intent = new Intent(ShoppingList.this,AddToShoppingList.class);
+        Intent intent = new Intent(ShoppingListActivity.this,AddToShoppingListActivity.class);
         intent.putExtra("list", shoppingList);
         startActivity(intent);
     }

@@ -44,6 +44,7 @@ user input                | output
 ------------------------- | -------------
 The app will use the recipe id to list ingredients| spaghetti, pork, bell peppers.
 
+user input                | output
 ------------------------- | -------------
 The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
 
@@ -60,6 +61,7 @@ The app will use link the user to the webpage with more information about the re
 
 
 ## Future Goals and Ideas
+* If shopping list and fridge list look the same then maybe refractor to be on the same page
 * let user add single ingredients to a cart, they are currently just strings in an array.
 * make input only one line for new items
 * Remove back to list button once a database is set up and use the up button instead
@@ -72,6 +74,8 @@ The app will use link the user to the webpage with more information about the re
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
 * categorize recipe cuisine (reach goal)
 
+
+
 ## Technologies Used
 
 * Android
@@ -79,13 +83,13 @@ The app will use link the user to the webpage with more information about the re
 * XML
 * Gradle
 * Git
-* Food2Fork API
+* Edamam Recipe Search API
 
 
 ## Known Bugs
 * Certain Information does not persist throughout the app as I am currently using ArrayLists instead of FireBase
 * User cant see the ingredients if they are in favorite section
-* favorite recipes can repeate themselves
+* favorite recipes can repeat themselves
 
 ### License
 

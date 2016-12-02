@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class AddToFridge extends AppCompatActivity implements View.OnClickListener{
+public class AddToFridgeActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addItemToFridgeButton) Button mAddItemToFridgeButton;
     @Bind(R.id.backToFridgeButton) Button mBackToFridgeButton;
     @Bind(R.id.fridgeInputEditText) EditText mFridgeInputEditText;
@@ -34,7 +34,7 @@ public class AddToFridge extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v){
         if(v==mBackToFridgeButton){
-            Intent intent = new Intent(AddToFridge.this,FridgeStock.class);
+            Intent intent = new Intent(AddToFridgeActivity.this,FridgeActivity.class);
             intent.putExtra("fridge-update", updateItems);
             startActivity(intent);
         }

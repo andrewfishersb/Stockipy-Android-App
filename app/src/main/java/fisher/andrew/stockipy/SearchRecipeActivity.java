@@ -15,7 +15,7 @@ import java.util.Arrays;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class FindRecipe extends AppCompatActivity implements View.OnClickListener{
+public class SearchRecipeActivity extends AppCompatActivity implements View.OnClickListener{
     private ArrayList<String> recipes = new ArrayList<String>(Arrays.asList(
             "Chili",
             "Mashed Potatoes",
@@ -50,7 +50,7 @@ public class FindRecipe extends AppCompatActivity implements View.OnClickListene
         mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?>adapterView, View v, int position, long l){
-                Intent intent = new Intent(FindRecipe.this,ViewRecipeActivity.class);
+                Intent intent = new Intent(SearchRecipeActivity.this,ViewRecipeActivity.class);
                 intent.putExtra("recipe",recipes.get(position));
                 intent.putExtra("ingredients",ingredients.get(position));
                 intent.putExtra("favorites",favoriteRecipes);
@@ -63,7 +63,7 @@ public class FindRecipe extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v){
-        Intent intent = new Intent(FindRecipe.this,YourRecipes.class);
+        Intent intent = new Intent(SearchRecipeActivity.this,YourRecipes.class);
         intent.putExtra("favorites",favoriteRecipes);
         intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
         startActivity(intent);

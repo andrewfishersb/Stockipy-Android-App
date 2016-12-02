@@ -16,21 +16,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".FridgeStock"
+            android:name=".FridgeActivity"
             android:label="Back Home">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fisher.andrew.stockipy.MainActivity" />
         </activity>
         <activity
-            android:name=".FindRecipe"
+            android:name=".SearchRecipeActivity"
             android:label="Back Home">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="fisher.andrew.stockipy.MainActivity" />
         </activity>
         <activity
-            android:name=".ShoppingList"
+            android:name=".ShoppingListActivity"
             android:label="Back Home">
             >
             <meta-data
@@ -42,27 +42,27 @@
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.FindRecipe" />
+                android:value=".SearchRecipeActivity" />
         </activity>
         <activity
-            android:name=".AddToShoppingList"
+            android:name=".AddToShoppingListActivity"
             android:label="Back to your Shopping List">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.ShoppingList" />
+                android:value=".ShoppingListActivity" />
         </activity>
         <activity
-            android:name=".AddToFridge"
+            android:name=".AddToFridgeActivity"
             android:label="Back to your Fridge">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.ShoppingList" />
+                android:value=".ShoppingListActivity" />
         </activity>
         <activity android:name=".ViewRecipeActivity"
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.FindRecipe" />
+                android:value=".SearchRecipeActivity" />
 
 
         </activity>
