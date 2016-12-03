@@ -24,7 +24,8 @@
         android:id="@+id/fridgeInputEditText"
         android:hint="Enter item here"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:maxLines="1"/>
 
     <Button
         android:layout_width="match_parent"
