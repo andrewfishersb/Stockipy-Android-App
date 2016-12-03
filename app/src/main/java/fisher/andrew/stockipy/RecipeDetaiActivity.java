@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -17,7 +19,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.addToFavoritesButton) Button mAddToFavoritesButton;
 //    @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
 //    @Bind(R.id.ingredientsView) TextView mIngredientsView;
-    private ArrayList<String> favoriteRecipe = new ArrayList<String>();
+    private ArrayList<String> mRecipes = new ArrayList<String>();
     private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
 
 
@@ -33,17 +35,21 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
 //        mRecipeNameTextView.setText(meal);
 //        mIngredientsView.setText(ingredients);
         mAddToFavoritesButton.setOnClickListener(this);
+
+        mRecipes = Parcels.unwrap(getIntent().getParcelableExtra("recipes"));
+        int position = getIntent().getIntExtra("position",0);
+
     }
 
     @Override
     public void onClick(View v){
         Intent intent = getIntent();
-        favoriteRecipe= intent.getStringArrayListExtra("favorites");
+        mRecipes= intent.getStringArrayListExtra("favorites");
         favoriteRecipesIngredients= intent.getStringArrayListExtra("favorite-ingredients");
-        favoriteRecipe.add(intent.getStringExtra("recipe"));
+        mRecipes.add(intent.getStringExtra("recipe"));
         favoriteRecipesIngredients.add(intent.getStringExtra("ingredients"));
         Intent favoriteIntent = new Intent(RecipeDetaiActivity.this,RecipeActivity.class);
-        favoriteIntent.putExtra("recipe-update",favoriteRecipe);
+        favoriteIntent.putExtra("recipe-update",mRecipes);
         favoriteIntent.putExtra("ingredients-update",favoriteRecipesIngredients);
         startActivity(favoriteIntent);
 

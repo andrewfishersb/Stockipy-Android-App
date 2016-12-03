@@ -22,7 +22,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-//Will display a recycler view of recipes received from the api
+//Will display a recycler view of recipes received from the api -> maybe send the information from here to a new activity
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
     //definitely keep
     @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
@@ -52,7 +52,6 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,mRecipes);
 
         Intent intent = getIntent();
         //check that the intent has materials
@@ -61,21 +60,6 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
             favoriteRecipesIngredients = intent.getStringArrayListExtra("ingredients-update");
         }
 
-
-
-
-
-//        mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?>adapterView, View v, int position, long l){
-//                Intent intent = new Intent(RecipeActivity.this,RecipeDetaiActivity.class);
-//               // intent.putExtra("recipe",mRecipes.get(position)); <-this would send recipe array over but of strings
-//                intent.putExtra("ingredients",ingredients.get(position));
-//                intent.putExtra("favorites",favoriteRecipes);
-//                intent.putExtra("favorite-ingredients",favoriteRecipesIngredients);
-//                startActivity(intent);
-//            }
-//        });
         mFavoriteRecipesButton.setOnClickListener(this);
         getRecipes("Chicken");
 

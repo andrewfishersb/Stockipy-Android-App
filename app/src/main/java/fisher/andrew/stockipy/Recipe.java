@@ -2,18 +2,20 @@ package fisher.andrew.stockipy;
 
 import java.util.ArrayList;
 
-/**
- * Created by Guest on 12/2/16.
- */
+import org.parceler.Parcel;
+
+
+@Parcel
 public class Recipe {
     String label;
     String image;
     String url;
     ArrayList<String> ingredientLines;
-    int calories;
+    double calories;
     int yield;
 
-    public Recipe(String label, String image, String url, ArrayList<String> ingredientLines, int calories, int yield) {
+    public Recipe(){}
+    public Recipe(String label, String image, String url, ArrayList<String> ingredientLines, double calories, int yield) {
         this.label = label;
         this.image = image;
         this.url = url;
@@ -39,7 +41,8 @@ public class Recipe {
     }
 
     public int getCalories() {
-        return calories;
+        double caloriesPerPerson = this.calories/this.yield;
+        return (int) caloriesPerPerson;
     }
 
     public int getYield() {

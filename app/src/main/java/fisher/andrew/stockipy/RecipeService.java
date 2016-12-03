@@ -49,7 +49,7 @@ public class RecipeService {
                     String title = currentRecipe.getString("label");
                     String image = currentRecipe.getString("image");
                     String url = currentRecipe.getString("url");
-                    int calories = currentRecipe.getInt("calories");
+                    double calories = currentRecipe.getDouble("calories");
                     int servings = currentRecipe.getInt("yield");
 
                     //array of ingredients may use in a recycler view or dialog box later
