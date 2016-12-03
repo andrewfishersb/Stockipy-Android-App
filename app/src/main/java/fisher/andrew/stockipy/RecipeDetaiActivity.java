@@ -14,9 +14,9 @@ import butterknife.ButterKnife;
 
 //Shows a single recipe - fragment will be sent here
 public class RecipeDetaiActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.addToFavoritesButton) Button mAddToFavoritesButton;
-    @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
-    @Bind(R.id.ingredientsView) TextView mIngredientsView;
+//    @Bind(R.id.addToFavoritesButton) Button mAddToFavoritesButton;
+//    @Bind(R.id.recipeNameTextView) TextView mRecipeNameTextView;
+//    @Bind(R.id.ingredientsView) TextView mIngredientsView;
     private ArrayList<String> favoriteRecipe = new ArrayList<String>();
     private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
 
@@ -30,9 +30,9 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         String meal = intent.getStringExtra("recipe");
         String ingredients = intent.getStringExtra("ingredients");
 
-        mRecipeNameTextView.setText(meal);
-        mIngredientsView.setText(ingredients);
-        mAddToFavoritesButton.setOnClickListener(this);
+//        mRecipeNameTextView.setText(meal);
+//        mIngredientsView.setText(ingredients);
+//        mAddToFavoritesButton.setOnClickListener(this);
     }
 
     @Override
