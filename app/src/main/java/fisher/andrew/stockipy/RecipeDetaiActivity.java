@@ -36,20 +36,20 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_recipe);
+        setContentView(R.layout.activity_view_recipe_details);
         ButterKnife.bind(this);
         Intent intent = getIntent();
 
         String title = intent.getStringExtra("title");
         String image = intent.getStringExtra("image");
         url = intent.getStringExtra("url");
-        int yield = intent.getIntExtra("yield",0); //if cant see ill change
-        int calories = intent.getIntExtra("calories",0); //if cant see ill change
+        String yield = intent.getStringExtra("yield");
+        String calories = intent.getStringExtra("calories");
         ArrayList<String> ingredients = intent.getStringArrayListExtra("ingredients");
 
         mDetailTitle.setText(title);
-        mCaloriesTextView.setText(calories);
-        mServingsTextView.setText(yield);
+        mCaloriesTextView.setText(calories + " calories per person");
+        mServingsTextView.setText("Serves " + yield);
 
         //list view, eventually a recycler view
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);

@@ -84,9 +84,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         @Override
         public void onClick(View v) {
-            //could make parcelable
-
-            //check it out
+            //works but could make parcelable
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, RecipeDetaiActivity.class);
             Recipe currentRecipe = mRecipes.get(itemPosition);
@@ -94,8 +92,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             intent.putExtra("image", currentRecipe.getImage());
             intent.putExtra("ingredients",currentRecipe.getIngredientLines());
             intent.putExtra("url", currentRecipe.getUrl());
-            intent.putExtra("yield", currentRecipe.getYield());
-            intent.putExtra("calories",currentRecipe.getCalories());
+            intent.putExtra("yield", currentRecipe.getYield().toString());
+            intent.putExtra("calories",currentRecipe.caloriesPerPerson().toString());
 //            intent.putExtra("position", itemPosition);
 //            intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
             mContext.startActivity(intent);

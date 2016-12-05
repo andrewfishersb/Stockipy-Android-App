@@ -10,10 +10,10 @@ public class Recipe {
     String image;
     String url;
     ArrayList<String> ingredientLines;
-    int calories;
-    int yield;
+    Integer calories;
+    Integer yield;
 
-    public Recipe(String label, String image, String url, ArrayList<String> ingredientLines, int calories, int yield) {
+    public Recipe(String label, String image, String url, ArrayList<String> ingredientLines, Integer calories, Integer yield) {
         this.label = label;
         this.image = image;
         this.url = url;
@@ -38,11 +38,18 @@ public class Recipe {
         return ingredientLines;
     }
 
-    public int getCalories() {
+    public Integer getCalories() {
         return calories;
     }
 
-    public int getYield() {
+    public Integer caloriesPerPerson(){
+        double calculated = (float)this.calories/this.yield;
+        Integer perPerson = (int) calculated;
+        return  perPerson;
+    }
+
+
+    public Integer getYield() {
         return yield;
     }
 }
