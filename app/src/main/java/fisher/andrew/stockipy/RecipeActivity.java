@@ -6,14 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,12 +34,12 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
 //            "Asparagus pasta"
 //    ));
 private ArrayList<Recipe> mRecipes = new ArrayList<>();
-    private ArrayList<String> ingredients = new ArrayList<String>(Arrays.asList(
-            "Red kidney beans\n\ntomatoes\n\nonion\n\nchili powder\n\ncorn\n\nrice",
-            "Potatoes\n\ncream cheese\n\negg\n\nonion\n\nsalt",
-            "flank Steak\n\nbalsamic vinegar\n\ngarlic clove\n\nTBS Worcestershire Sauce",
-            "asparagus\n\nheavy whipping cream\n\ntuna\n\nspaghetti"
-    ));
+//    private ArrayList<String> ingredients = new ArrayList<String>(Arrays.asList(
+//            "Red kidney beans\n\ntomatoes\n\nonion\n\nchili powder\n\ncorn\n\nrice",
+//            "Potatoes\n\ncream cheese\n\negg\n\nonion\n\nsalt",
+//            "flank Steak\n\nbalsamic vinegar\n\ngarlic clove\n\nTBS Worcestershire Sauce",
+//            "asparagus\n\nheavy whipping cream\n\ntuna\n\nspaghetti"
+//    ));
 
     private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
 
@@ -78,15 +74,29 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
 //        });
         mFavoriteRecipesButton.setOnClickListener(this);
         getRecipes("Chicken");
-
+        mRecipesRecyclerView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        Intent intent = new Intent(RecipeActivity.this,YourRecipesActivity.class);
-        intent.putExtra("favorites",favoriteRecipes);
-        intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
-        startActivity(intent);
+        if(v == mFavoriteRecipesButton){
+            Intent intent = new Intent(RecipeActivity.this,YourRecipesActivity.class);
+            intent.putExtra("favorites",favoriteRecipes);
+            intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
+            startActivity(intent);
+        }else if(v == mRecipesRecyclerView){
+            //make parcelable later
+            Intent intent = new Intent(RecipeActivity.this, RecipeDetaiActivity.class);
+            int position = mAdapter.getPosition();
+//            Recipe sendRecipe = mRecipes.get(position);
+//            intent.putExtra("title",sendRecipe.getLabel());
+//            intent.putExtra("image", sendRecipe.getImage());
+//            intent.putExtra("ingredients",sendRecipe.getIngredientLines());
+//            intent.putExtra("url", sendRecipe.getUrl());
+//            intent.putExtra("yield", sendRecipe.getYield());
+            startActivity(intent);
+        }
+
     }
 
     public void getRecipes(String query){
