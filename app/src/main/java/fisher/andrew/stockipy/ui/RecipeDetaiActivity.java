@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.ui;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
 
 //Shows a single recipe
 public class RecipeDetaiActivity extends AppCompatActivity implements View.OnClickListener{

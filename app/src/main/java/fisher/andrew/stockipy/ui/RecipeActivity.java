@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,10 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
+import fisher.andrew.stockipy.services.RecipeService;
+import fisher.andrew.stockipy.adapters.RecipeListAdapter;
+import fisher.andrew.stockipy.models.Recipe;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;

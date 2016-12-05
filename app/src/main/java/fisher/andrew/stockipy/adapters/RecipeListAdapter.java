@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,9 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
+import fisher.andrew.stockipy.ui.RecipeDetaiActivity;
+import fisher.andrew.stockipy.models.Recipe;
 
 
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {

@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.R;
 
 public class AddToShoppingListActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addItemListButton) Button mAddItemListButton;

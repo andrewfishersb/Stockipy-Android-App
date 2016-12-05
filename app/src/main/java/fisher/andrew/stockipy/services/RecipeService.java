@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy;
+package fisher.andrew.stockipy.services;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -7,6 +7,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import fisher.andrew.stockipy.Constants;
+import fisher.andrew.stockipy.models.Recipe;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.HttpUrl;
