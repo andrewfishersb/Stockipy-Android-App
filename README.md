@@ -15,38 +15,20 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 
 
-user input                | output
-------------------------- | -------------
-The user can enter items onto their shopping list| spaghetti, pork, bell peppers.
-
-
-user input                | output
-------------------------- | -------------
-The user enters items in their fridge| In fridge: bananas, corn, pancake mix, onion
-
-
-user input                | output
-------------------------- | -------------
-user can see a list of recipes and can click on a recipe to see ingredients| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
-
-user input                | output
-------------------------- | -------------
-user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
+|user input                | output
+|------------------------- | -------------
+|1. The user can enter items onto their shopping list| spaghetti, pork, bell peppers.
+|2. The user enters items in their fridge| In fridge: bananas, corn, pancake mix, onion
+|3. user can see a list of recipes and can click on a recipe to see ingredients| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
+|4. user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
 
 ### Week 2 Specs
 
-user input                | output
-------------------------- | -------------
-The app will request recipe information from an API and list using a Recycler View| BBQ Sandwich, Buffalo Wings, Veggie Burger.
-
-
-user input                | output
-------------------------- | -------------
-The app will use the recipe id to list ingredients| spaghetti, pork, bell peppers.
-
-user input                | output
-------------------------- | -------------
-The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
+|user input                | output
+|------------------------- | -------------
+|1. The app will request recipe information from an API and list using a Recycler View| BBQ Sandwich, Buffalo Wings, Veggie Burger.
+|2. The app will show all ingredients calorie information when recipe is clicked| 500 calories per person, peppers, mashed potatoes
+|3. The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
 
 
 
