@@ -27,7 +27,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.servingsTextView) TextView mServingsTextView;
     @Bind(R.id.ingredientListView) ListView mIngredientListView;
     @Bind(R.id.detailImage) ImageView mDetailImage;
-    private String url; //get rid of when made parcelable since will just need the object up here and can access all else lower.
+    private String url;
 
 
     private ArrayList<String> favoriteRecipe = new ArrayList<String>();
@@ -52,38 +52,23 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         mCaloriesTextView.setText(calories + " calories per person");
         mServingsTextView.setText("Serves " + yield);
 
-        //list view, eventually a recycler view
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);
         mIngredientListView.setAdapter(adapter);
 
-        //image
         Picasso.with(this).load(image).into(mDetailImage);
 
         mLinkTextView.setOnClickListener(this);
     }
 
 
-    //when there is an associated button this will either add to favs or shopping + favs
     @Override
     public void onClick(View v){
 
         if(v == mLinkTextView){
-            //implicit intent
             Intent externalLink = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(externalLink);
-
         }
 
-        // WAS HERE WHEN THERE WAS A BUTTON
-//        Intent intent = getIntent();
-//        favoriteRecipe= intent.getStringArrayListExtra("favorites");
-//        favoriteRecipesIngredients= intent.getStringArrayListExtra("favorite-ingredients");
-//        favoriteRecipe.add(intent.getStringExtra("recipe"));
-//        favoriteRecipesIngredients.add(intent.getStringExtra("ingredients"));
-//        Intent favoriteIntent = new Intent(RecipeDetaiActivity.this,RecipeActivity.class);
-//        favoriteIntent.putExtra("recipe-update",favoriteRecipe);
-//        favoriteIntent.putExtra("ingredients-update",favoriteRecipesIngredients);
-//        startActivity(favoriteIntent);
 
     }
 

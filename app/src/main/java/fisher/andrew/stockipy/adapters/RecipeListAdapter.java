@@ -23,7 +23,6 @@ import fisher.andrew.stockipy.models.Recipe;
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private Context context;
-    private int mPosition;
 
     public RecipeListAdapter(ArrayList<Recipe> mRecipes, Context context) {
         this.mRecipes = mRecipes;
@@ -40,33 +39,12 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     @Override
     public void onBindViewHolder(RecipeListAdapter.RecipeViewHolder holder, final int position){
         holder.bindRecipes(mRecipes.get(position));
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-////                Toast.makeText(context, "Recycle Click" + position, Toast.LENGTH_SHORT).show();
-////                mPosition = position;
-//
-//                Intent intent = new Intent(context, RecipeDetaiActivity.class);
-//                context.startActivity(intent);
-//            }
-//        });
-
     }
 
     @Override
     public int getItemCount(){
         return mRecipes.size();
     }
-
-    //test
-    public int getPosition(){
-        return mPosition;
-    }
-
-
-
-    //test
-
 
 
     public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -87,7 +65,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
         @Override
         public void onClick(View v) {
-            //works but could make parcelable
+
+            //triggered when user click on an instance of the recycler view
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, RecipeDetaiActivity.class);
             Recipe currentRecipe = mRecipes.get(itemPosition);
@@ -97,8 +76,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             intent.putExtra("url", currentRecipe.getUrl());
             intent.putExtra("yield", currentRecipe.getYield().toString());
             intent.putExtra("calories",currentRecipe.caloriesPerPerson().toString());
-//            intent.putExtra("position", itemPosition);
-//            intent.putExtra("restaurants", Parcels.wrap(mRestaurants));
             mContext.startActivity(intent);
         }
     }

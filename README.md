@@ -26,7 +26,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 |user input                | output
 |------------------------- | -------------
-|1. The app will request recipe information from an API and list using a Recycler View| BBQ Sandwich, Buffalo Wings, Veggie Burger.
+|1. The app will request recipe information from the Edamam Recipe Search API and list using a Recycler View| Chicken Sandwich, Buffalo Wings, Jerk Chicken.
 |2. The app will show all ingredients calorie information when recipe is clicked| 500 calories per person, peppers, mashed potatoes
 |3. The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
 

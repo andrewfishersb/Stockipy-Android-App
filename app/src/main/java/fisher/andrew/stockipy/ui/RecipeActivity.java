@@ -24,26 +24,11 @@ import okhttp3.Response;
 
 //Will display a recycler view of recipes received from the api
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
-    //definitely keep
     @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
     @Bind(R.id.recipesRecyclerView) RecyclerView mRecipesRecyclerView;
     private ArrayList<String> favoriteRecipes = new ArrayList<String>();
     private RecipeListAdapter mAdapter;
-
-
-//    private ArrayList<String> recipes = new ArrayList<String>(Arrays.asList(
-//            "Chili",
-//            "Mashed Potatoes",
-//            "Marinated Flank Steak",
-//            "Asparagus pasta"
-//    ));
-private ArrayList<Recipe> mRecipes = new ArrayList<>();
-//    private ArrayList<String> ingredients = new ArrayList<String>(Arrays.asList(
-//            "Red kidney beans\n\ntomatoes\n\nonion\n\nchili powder\n\ncorn\n\nrice",
-//            "Potatoes\n\ncream cheese\n\negg\n\nonion\n\nsalt",
-//            "flank Steak\n\nbalsamic vinegar\n\ngarlic clove\n\nTBS Worcestershire Sauce",
-//            "asparagus\n\nheavy whipping cream\n\ntuna\n\nspaghetti"
-//    ));
+    private ArrayList<Recipe> mRecipes = new ArrayList<>();
 
     private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
 
@@ -52,60 +37,30 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,mRecipes);
-
         Intent intent = getIntent();
-        //check that the intent has materials
+
+        //checks that the intent has materials
         if(intent.getExtras()!=null){
             favoriteRecipes = intent.getStringArrayListExtra("recipe-update");
             favoriteRecipesIngredients = intent.getStringArrayListExtra("ingredients-update");
         }
 
-
-
-
-
-//        mRecipeListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-//            @Override
-//            public void onItemClick(AdapterView<?>adapterView, View v, int position, long l){
-//                Intent intent = new Intent(RecipeActivity.this,RecipeDetaiActivity.class);
-//               // intent.putExtra("recipe",mRecipes.get(position)); <-this would send recipe array over but of strings
-//                intent.putExtra("ingredients",ingredients.get(position));
-//                intent.putExtra("favorites",favoriteRecipes);
-//                intent.putExtra("favorite-ingredients",favoriteRecipesIngredients);
-//                startActivity(intent);
-//            }
-//        });
         mFavoriteRecipesButton.setOnClickListener(this);
         getRecipes("Chicken");
-        mRecipesRecyclerView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        if(v == mFavoriteRecipesButton){
             Intent intent = new Intent(RecipeActivity.this,YourRecipesActivity.class);
             intent.putExtra("favorites",favoriteRecipes);
             intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
             startActivity(intent);
-        }else if(v == mRecipesRecyclerView){
-            //make parcelable later
-            Intent intent = new Intent(RecipeActivity.this, RecipeDetaiActivity.class);
-            int position = mAdapter.getPosition();
-//            Recipe sendRecipe = mRecipes.get(position);
-//            intent.putExtra("title",sendRecipe.getLabel());
-//            intent.putExtra("image", sendRecipe.getImage());
-//            intent.putExtra("ingredients",sendRecipe.getIngredientLines());
-//            intent.putExtra("url", sendRecipe.getUrl());
-//            intent.putExtra("yield", sendRecipe.getYield());
-            startActivity(intent);
-        }
-
     }
 
     public void getRecipes(String query){
         final RecipeService recipeService = new RecipeService();
 
+        //searches for a type of recipe based on a query
         recipeService.findRecipe(query, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -114,13 +69,17 @@ private ArrayList<Recipe> mRecipes = new ArrayList<>();
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                //calls on the service to pull information from the JSON set to an arraylist of recipes
                 mRecipes = recipeService.proccessResults(response);
 
                 RecipeActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //injects the recipes into an adapter
                         mAdapter = new RecipeListAdapter(mRecipes, getApplicationContext());
                         mRecipesRecyclerView.setAdapter(mAdapter);
+
+                        //determines layout being used
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeActivity.this);
                         mRecipesRecyclerView.setLayoutManager(layoutManager);
                         mRecipesRecyclerView.setHasFixedSize(true);

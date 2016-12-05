@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.fridgeButton) Button mFridgeButton;
     @Bind(R.id.recipeButton) Button mRecipeButton;
     @Bind(R.id.shoppingListButton) Button mShoppingListButton;
-    @Bind(R.id.headerTextView) TextView mHeaderTextView; // Use to add a font later on
+    @Bind(R.id.headerTextView) TextView mHeaderTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

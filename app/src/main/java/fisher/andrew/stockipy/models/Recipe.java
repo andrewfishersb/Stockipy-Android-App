@@ -38,9 +38,7 @@ public class Recipe {
         return ingredientLines;
     }
 
-    public Integer getCalories() {
-        return calories;
-    }
+
 
     public Integer caloriesPerPerson(){
         double calculated = (float)this.calories/this.yield;

@@ -24,8 +24,6 @@ public class RecipeService {
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.RECIPE_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.SEARCHED_TERM,query);
-
-        //add in other wah to do api calls
         urlBuilder.addQueryParameter("app_id",Constants.EDAMAM_API_ID);
         urlBuilder.addQueryParameter("app_key",Constants.EDAMAM_API_KEY);
         String url = urlBuilder.build().toString();
@@ -56,7 +54,7 @@ public class RecipeService {
                     int calories = currentRecipe.getInt("calories");
                     int servings = currentRecipe.getInt("yield");
 
-                    //array of ingredients may use in a recycler view or dialog box later
+                    //looks into an array of ingredients and add them to the recipe
                     ArrayList<String> ingredients = new ArrayList<>();
                     JSONArray ingredientList = currentRecipe.getJSONArray("ingredientLines");
                     for(int j = 0; j< ingredientList.length(); j++){
