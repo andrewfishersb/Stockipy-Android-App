@@ -81,7 +81,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/ingredientListView"
             android:layout_marginTop="5dp"
-            android:textColor="#ffffff"
             android:layout_below="@+id/detailImage"/>
 
     </RelativeLayout>
