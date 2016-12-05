@@ -24,8 +24,8 @@ public class RecipeService {
         urlBuilder.addQueryParameter(Constants.SEARCHED_TERM,query);
 
         //add in other wah to do api calls
-        urlBuilder.addQueryParameter("app_id","7a2d769f");
-        urlBuilder.addQueryParameter("app_key","07772915f9b7d9f972db135f45bacb44");
+        urlBuilder.addQueryParameter("app_id",Constants.EDAMAM_API_ID);
+        urlBuilder.addQueryParameter("app_key",Constants.EDAMAM_API_KEY);
         String url = urlBuilder.build().toString();
 
         Request request = new Request.Builder().url(url).build();

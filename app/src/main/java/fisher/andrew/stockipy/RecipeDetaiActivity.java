@@ -43,16 +43,15 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         String title = intent.getStringExtra("title");
         String image = intent.getStringExtra("image");
         url = intent.getStringExtra("url");
-        String yield = intent.getStringExtra("yield");
-        String calories = intent.getStringExtra("calories");
+        int yield = intent.getIntExtra("yield",0); //if cant see ill change
+        int calories = intent.getIntExtra("calories",0); //if cant see ill change
         ArrayList<String> ingredients = intent.getStringArrayListExtra("ingredients");
 
         mDetailTitle.setText(title);
-//        mLinkTextView.setText(url);//implicit intent
         mCaloriesTextView.setText(calories);
         mServingsTextView.setText(yield);
 
-        //arraylist
+        //list view, eventually a recycler view
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);
         mIngredientListView.setAdapter(adapter);
 
