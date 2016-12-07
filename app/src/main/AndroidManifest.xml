@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.FridgeActivity"
+            android:name=".ui.KitchenActivity"
             android:label="Back Home">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -53,7 +53,7 @@
                 android:value=".ui.ShoppingListActivity" />
         </activity>
         <activity
-            android:name=".ui.AddToFridgeActivity"
+            android:name=".ui.AddToKitchenActivity"
             android:label="Back to your Fridge">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

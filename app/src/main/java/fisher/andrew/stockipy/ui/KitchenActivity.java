@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
 
-public class FridgeActivity extends AppCompatActivity implements View.OnClickListener{
+public class KitchenActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.stockFridgeButton) Button mStockFridgeButton;
     @Bind(R.id.fridgeListView) ListView mFridgeListView;
     private ArrayList<String> itemsInFridge = new ArrayList<String>(Arrays.asList(
@@ -45,7 +45,7 @@ public class FridgeActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v){
-        Intent intent = new Intent(FridgeActivity.this,AddToFridgeActivity.class);
+        Intent intent = new Intent(KitchenActivity.this,AddToKitchenActivity.class);
         intent.putExtra("fridge",itemsInFridge);
         startActivity(intent);
     }

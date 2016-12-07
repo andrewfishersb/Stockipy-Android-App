@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v){
         if(v==mFridgeButton){
-            Intent intent = new Intent(MainActivity.this,FridgeActivity.class);
+            Intent intent = new Intent(MainActivity.this,KitchenActivity.class);
             startActivity(intent);
         }
         if(v==mRecipeButton){

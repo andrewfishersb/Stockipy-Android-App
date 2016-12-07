@@ -15,7 +15,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
 
-public class AddToFridgeActivity extends AppCompatActivity implements View.OnClickListener{
+//takes the  user input and adds it to the firebase database element of fridge
+public class AddToKitchenActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addItemToFridgeButton) Button mAddItemToFridgeButton;
     @Bind(R.id.backToFridgeButton) Button mBackToFridgeButton;
     @Bind(R.id.fridgeInputEditText) EditText mFridgeInputEditText;
@@ -35,7 +36,7 @@ public class AddToFridgeActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v){
         if(v==mBackToFridgeButton){
-            Intent intent = new Intent(AddToFridgeActivity.this,FridgeActivity.class);
+            Intent intent = new Intent(AddToKitchenActivity.this,KitchenActivity.class);
             intent.putExtra("fridge-update", updateItems);
             startActivity(intent);
         }

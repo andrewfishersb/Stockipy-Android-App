@@ -15,6 +15,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
 
+
+//add to shopping cart
 public class AddToShoppingListActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addItemListButton) Button mAddItemListButton;
     @Bind(R.id.backToListButton) Button mBackToListButton;;
