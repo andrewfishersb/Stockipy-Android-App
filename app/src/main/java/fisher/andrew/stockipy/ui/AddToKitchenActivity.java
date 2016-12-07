@@ -61,6 +61,6 @@ public class AddToKitchenActivity extends AppCompatActivity implements View.OnCl
     }
 
     public void saveItemToKitchenFirebase(String item){
-        mAddToKitchenReference.setValue(item);
+        mAddToKitchenReference.push().setValue(item);
     }
 }
