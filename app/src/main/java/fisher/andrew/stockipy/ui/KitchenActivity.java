@@ -14,6 +14,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
 
+
+//need to refractor before this works
 public class KitchenActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.stockFridgeButton) Button mStockFridgeButton;
     @Bind(R.id.fridgeListView) ListView mFridgeListView;
@@ -29,7 +31,7 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fridge_stock);
+        setContentView(R.layout.activity_kitchen_stock);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();

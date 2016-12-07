@@ -9,47 +9,58 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
 
 //takes the  user input and adds it to the firebase database element of fridge
 public class AddToKitchenActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.addItemToFridgeButton) Button mAddItemToFridgeButton;
-    @Bind(R.id.backToFridgeButton) Button mBackToFridgeButton;
-    @Bind(R.id.fridgeInputEditText) EditText mFridgeInputEditText;
-    private ArrayList<String> updateItems;
+    @Bind(R.id.addItemToKitchenButton) Button mAddItemToKitchenButton;
+//    @Bind(R.id.backToFridgeButton) Button mBackToFridgeButton; ->use manifest
+    @Bind(R.id.kitchenInputEditText) EditText mKitchenInputEditText;
+
+    private DatabaseReference mAddToKitchenReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+    mAddToKitchenReference = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_KITCHEN);
+
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_to_fridge);
+        setContentView(R.layout.activity_add_to_kitchen);
         ButterKnife.bind(this);
-        mAddItemToFridgeButton.setOnClickListener(this);
-        mBackToFridgeButton.setOnClickListener(this);
-        Intent intent = getIntent();
-        updateItems = intent.getStringArrayListExtra("fridge");
+        mAddItemToKitchenButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v){
-        if(v==mBackToFridgeButton){
-            Intent intent = new Intent(AddToKitchenActivity.this,KitchenActivity.class);
-            intent.putExtra("fridge-update", updateItems);
-            startActivity(intent);
-        }
-        if(v==mAddItemToFridgeButton){
-            String userInput = mFridgeInputEditText.getText().toString();
+//        if(v==mBackToFridgeButton){ //this is usless right??? just use a manifest
+//            Intent intent = new Intent(AddToKitchenActivity.this,KitchenActivity.class);
+//            intent.putExtra("fridge-update", updateItems);
+//            startActivity(intent);
+//        }
+        if(v==mAddItemToKitchenButton){
+            String userInput = mKitchenInputEditText.getText().toString();
+            mKitchenInputEditText.setText("");
             if(userInput.equals("")){
                 Toast toast = Toast.makeText(this, "No Item Added", Toast.LENGTH_SHORT);
                 toast.setGravity(Gravity.CENTER_VERTICAL,0,250);
                 toast.show();
             }else{
-                updateItems.add(userInput);
-                mFridgeInputEditText.setText("");
+                saveItemToKitchenFirebase(userInput);
+                Intent intent = new Intent(AddToKitchenActivity.this,KitchenActivity.class);
+                intent.putExtra("item",userInput); // remove if no need for object passing
+                startActivity(intent);
             }
         }
+    }
+
+    public void saveItemToKitchenFirebase(String item){
+        mAddToKitchenReference.setValue(item);
     }
 }
