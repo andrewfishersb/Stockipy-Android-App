@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
-import fisher.andrew.stockipy.ui.RecipeDetaiActivity;
+import fisher.andrew.stockipy.ui.recipes.RecipeDetaiActivity;
 import fisher.andrew.stockipy.models.Recipe;
 
 

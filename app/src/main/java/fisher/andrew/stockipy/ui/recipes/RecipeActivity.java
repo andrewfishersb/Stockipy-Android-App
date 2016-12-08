@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy.ui;
+package fisher.andrew.stockipy.ui.recipes;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -51,6 +51,8 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
+
+
         Intent intent = getIntent();
 
         //checks that the intent has materials
@@ -59,8 +61,15 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
             favoriteRecipesIngredients = intent.getStringArrayListExtra("ingredients-update");
         }
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_FOOD,null);
+
+        if(mRecentSearch !=null){
+            getRecipes(mRecentSearch);
+        }
+
         mFavoriteRecipesButton.setOnClickListener(this);
-//        getRecipes("Chicken");
+
     }
 
     //search menu create
@@ -80,6 +89,8 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public boolean onQueryTextSubmit(String query){
                 addToSharedPreferences(query);
+
+
                 getRecipes(query);
                 return false;
             }

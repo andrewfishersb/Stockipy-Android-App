@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fisher.andrew.stockipy">
+<manifest package="fisher.andrew.stockipy"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -11,59 +12,64 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.KitchenActivity"
+            android:name=".ui.kitchen.KitchenActivity"
             android:label="Back Home">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.ui.MainActivity" />
+                android:value="fisher.andrew.stockipy.ui.MainActivity"/>
         </activity>
-        <activity
-            android:name=".ui.RecipeActivity"
-            >
+        <activity android:name=".ui.recipes.RecipeActivity"
+                  android:label=""
+                  >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.ui.MainActivity" />
+                android:value="fisher.andrew.stockipy.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.ShoppingListActivity"
+            android:name=".ui.shopping.ShoppingListActivity"
             android:label="Back Home">
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="fisher.andrew.stockipy.ui.MainActivity" />
+                android:value="fisher.andrew.stockipy.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.YourRecipesActivity"
+            android:name=".ui.recipes.YourRecipesActivity"
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.RecipeActivity" />
+                android:value=".ui.recipes.RecipeActivity"/>
         </activity>
         <activity
-            android:name=".ui.AddToShoppingListActivity"
+            android:name=".ui.shopping.AddToShoppingListActivity"
             android:label="Back to your Shopping List">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ShoppingListActivity" />
+                android:value=".ui.shopping.ShoppingListActivity"/>
         </activity>
         <activity
-            android:name=".ui.AddToKitchenActivity"
+            android:name=".ui.kitchen.AddToKitchenActivity"
             android:label="Back to your Fridge">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.ShoppingListActivity" />
+                android:value=".ui.shopping.ShoppingListActivity"/>
         </activity>
-        <activity android:name=".ui.RecipeDetaiActivity"
+        <activity
+            android:name=".ui.recipes.RecipeDetaiActivity"
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.RecipeActivity" />
+                android:value=".ui.recipes.RecipeActivity"/>
+        </activity>
+        <activity android:name=".ui.authentication.CreateAccountActivity"
+                  android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
 
 
         </activity>

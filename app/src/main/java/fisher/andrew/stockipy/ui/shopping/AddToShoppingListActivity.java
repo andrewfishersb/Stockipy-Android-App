@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy.ui;
+package fisher.andrew.stockipy.ui.shopping;
 
 import android.content.Intent;
 import android.os.Bundle;

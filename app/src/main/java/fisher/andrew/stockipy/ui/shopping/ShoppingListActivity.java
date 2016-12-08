@@ -1,4 +1,4 @@
-package fisher.andrew.stockipy.ui;
+package fisher.andrew.stockipy.ui.shopping;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +14,6 @@ import java.util.Arrays;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
-
 
 
 public class ShoppingListActivity extends AppCompatActivity implements View.OnClickListener {

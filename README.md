@@ -35,11 +35,12 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 |user input                | output
 |------------------------- | -------------
 |1. User will now you a search bar to search for a recipe by item: i.e. "Chicken"| Chicken Sandwich, Buffalo Wings, Jerk Chicken.
-|2. User can create an account with an email and password, this will log them in
-|3. User can then log into the app| Welcome to Stockipy
-|4. Kitchen items can be added to a database: eggs | eggs have been added to your kitchen stock
-|5. Shopping items can be added to a database: cereal | cereal have been added to your shopping list
-|6. User can add a recipe to a list of favorites in the database | Favorite Recipes: Chicken Sandwich, Buffalo Wings
+|2.
+|3. User can create an account with an email and password, this will log them in
+|4. User can then log into the app| Welcome to Stockipy
+|5. Kitchen items can be added to a database: eggs | eggs have been added to your kitchen stock
+|6. Shopping items can be added to a database: cereal | cereal have been added to your shopping list
+|7. User can add a recipe to a list of favorites in the database | Favorite Recipes: Chicken Sandwich, Buffalo Wings
 
 
 ## Setup/Installation Requirements
@@ -54,11 +55,11 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 
 ## Future Goals and Ideas
+* when user signs up for the first time have a view that tells the user to search for a recipe in the top bar - on the recipe activity
 * Make api call on homepage so it doesnt load everytime I press back or find recipe (or on the search page when i create it).
-* If shopping list and fridge list look the same then maybe refractor to be on the same page
-* let user add single ingredients to a cart, they are currently just strings in an array.
+* If shopping list and fridge list look the same then maybe refractor to be the same layout
 * make input only one line for new items
-* Remove back to list button once a database is set up and use the up button instead
+* Remove back to list button once a database is set up and use the up top button instead
 * Add items and don't go back until user says so - maybe implement a toolbar so one can send information back
 * With ingredients on shopping list, swipe to delete or add to the fridge
 * When adding an item use a dialog on the same activity instead of a new page

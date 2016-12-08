@@ -10,6 +10,9 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
+import fisher.andrew.stockipy.ui.kitchen.KitchenActivity;
+import fisher.andrew.stockipy.ui.recipes.RecipeActivity;
+import fisher.andrew.stockipy.ui.shopping.ShoppingListActivity;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
