@@ -30,6 +30,16 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 |2. The app will show all ingredients calorie information when recipe is clicked| 500 calories per person, peppers, mashed potatoes
 |3. The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
 
+### Week 3 Specs
+
+|user input                | output
+|------------------------- | -------------
+|1. User will now you a search bar to search for a recipe by item: i.e. "Chicken"| Chicken Sandwich, Buffalo Wings, Jerk Chicken.
+|2. User can create an account with an email and password, this will log them in
+|3. User can then log into the app| Welcome to Stockipy
+|4. Kitchen items can be added to a database: eggs | eggs have been added to your kitchen stock
+|5. Shopping items can be added to a database: cereal | cereal have been added to your shopping list
+|6. User can add a recipe to a list of favorites in the database | Favorite Recipes: Chicken Sandwich, Buffalo Wings
 
 
 ## Setup/Installation Requirements
@@ -39,6 +49,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
  Open up android studio
  plug in your own device or set up an emulator
  press run, select the device and the app should run
+ if it does not start go to Build->Clean Project
 ```
 
 
