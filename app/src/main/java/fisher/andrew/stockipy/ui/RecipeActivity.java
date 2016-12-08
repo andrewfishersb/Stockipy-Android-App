@@ -1,10 +1,17 @@
 package fisher.andrew.stockipy.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,14 +20,17 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
-import fisher.andrew.stockipy.services.RecipeService;
 import fisher.andrew.stockipy.adapters.RecipeListAdapter;
 import fisher.andrew.stockipy.models.Recipe;
+import fisher.andrew.stockipy.services.RecipeService;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
+
+//either a use the pervious search or have a page that when no API say something like search for recipes
 
 //Will display a recycler view of recipes received from the api
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
@@ -29,10 +39,14 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
     private ArrayList<String> favoriteRecipes = new ArrayList<String>();
     private RecipeListAdapter mAdapter;
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
-
     private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
 
-    @Override
+    //variables for the sharedpreferance search widget
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentSearch;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
@@ -46,7 +60,43 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         }
 
         mFavoriteRecipesButton.setOnClickListener(this);
-        getRecipes("Chicken");
+//        getRecipes("Chicken");
+    }
+
+    //search menu create
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query){
+                addToSharedPreferences(query);
+                getRecipes(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+    //This ensures that all functionality from the parent class will still apply despite us manually overriding portions of the menu's functionality.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -90,6 +140,11 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         });
 
 
+    }
+
+    //write to shared preferance
+    private void addToSharedPreferences(String searchTerm){
+        mEditor.putString(Constants.PREFERENCES_SEARCH_FOOD, searchTerm).apply();
     }
 
 }
