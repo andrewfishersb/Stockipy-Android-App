@@ -34,7 +34,6 @@ import okhttp3.Response;
 
 //Will display a recycler view of recipes received from the api
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
     @Bind(R.id.recipesRecyclerView) RecyclerView mRecipesRecyclerView;
     private ArrayList<String> favoriteRecipes = new ArrayList<String>();
     private RecipeListAdapter mAdapter;
@@ -68,7 +67,6 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
             getRecipes(mRecentSearch);
         }
 
-        mFavoriteRecipesButton.setOnClickListener(this);
 
     }
 
@@ -112,10 +110,10 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v){
-            Intent intent = new Intent(RecipeActivity.this,YourRecipesActivity.class);
-            intent.putExtra("favorites",favoriteRecipes);
-            intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
-            startActivity(intent);
+//            Intent intent = new Intent(RecipeActivity.this,YourRecipesActivity.class);
+//            intent.putExtra("favorites",favoriteRecipes);
+//            intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
+//            startActivity(intent);
     }
 
     public void getRecipes(String query){

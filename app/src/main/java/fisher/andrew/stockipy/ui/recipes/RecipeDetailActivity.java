@@ -84,19 +84,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_favorite,menu);
-//        ButterKnife.bind(this);
-
-        //keep?
-         menuItem = menu.findItem(R.id.action_favorite);//MenuItem
-
-
-//        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem menuItem) {
-//                Toast.makeText(RecipeDetailActivity.this,"Liked",Toast.LENGTH_SHORT);
-//                return true;
-//            }
-//        });
+        menuItem = menu.findItem(R.id.action_favorite);
         return true;
     }
 

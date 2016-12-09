@@ -72,7 +72,9 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
 * categorize recipe cuisine (reach goal)
 
-
+# Known Bugs or Improvements
+* When an item is liked then the user goes to another page and comes back to the same page the heart is empty again
+* Can like the same item again
 
 ## Technologies Used
 
