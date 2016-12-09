@@ -1,10 +1,13 @@
 package fisher.andrew.stockipy.models;
 
+import org.parceler.Parcel;
+
 import java.util.ArrayList;
 
 /**
  * Created by Guest on 12/2/16.
  */
+@Parcel
 public class Recipe {
     String label;
     String image;
@@ -12,8 +15,9 @@ public class Recipe {
     ArrayList<String> ingredientLines;
     Integer calories;
     Integer yield;
-
     private String pushId;
+
+    public Recipe(){}
 
     public Recipe(String label, String image, String url, ArrayList<String> ingredientLines, Integer calories, Integer yield) {
         this.label = label;

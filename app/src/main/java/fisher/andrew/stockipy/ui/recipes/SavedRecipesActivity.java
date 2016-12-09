@@ -1,12 +1,9 @@
 package fisher.andrew.stockipy.ui.recipes;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,8 +57,13 @@ public class SavedRecipesActivity extends AppCompatActivity {
                 viewHolder.bindRecipe(model);
             }
         };
+
+
+
+
         mFavoriteRecipesRecyclerView.setHasFixedSize(true);
-        mFavoriteRecipesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        mFavoriteRecipesRecyclerView.setLayoutManager(gridLayoutManager);
         mFavoriteRecipesRecyclerView.setAdapter(mFirebaseAdapter);
 
     }

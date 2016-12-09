@@ -18,6 +18,7 @@ import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.ui.authentication.LoginActivity;
 import fisher.andrew.stockipy.ui.kitchen.KitchenActivity;
 import fisher.andrew.stockipy.ui.recipes.RecipeActivity;
+import fisher.andrew.stockipy.ui.recipes.SavedRecipesActivity;
 import fisher.andrew.stockipy.ui.shopping.ShoppingListActivity;
 
 
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.fridgeButton) Button mFridgeButton;
     @Bind(R.id.recipeButton) Button mRecipeButton;
     @Bind(R.id.shoppingListButton) Button mShoppingListButton;
+    @Bind(R.id.favoriteRecipesButton) Button mFavoriteRecipesButton;
     @Bind(R.id.headerTextView) TextView mHeaderTextView;
 
     @Override
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFridgeButton.setOnClickListener(this);
         mRecipeButton.setOnClickListener(this);
         mShoppingListButton.setOnClickListener(this);
-
+        mFavoriteRecipesButton.setOnClickListener(this);
     }
 
     //inflates the main menu bar
@@ -73,6 +75,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v==mShoppingListButton){
             Intent intent = new Intent(MainActivity.this,ShoppingListActivity.class);
+            startActivity(intent);
+        }
+        if(v==mFavoriteRecipesButton){
+            Intent intent = new Intent(MainActivity.this,SavedRecipesActivity.class);
             startActivity(intent);
         }
     }

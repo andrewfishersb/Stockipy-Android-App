@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -139,8 +138,15 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
                         mRecipesRecyclerView.setAdapter(mAdapter);
 
                         //determines layout being used
-                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeActivity.this);
-                        mRecipesRecyclerView.setLayoutManager(layoutManager);
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(RecipeActivity.this, 2);
+                        mRecipesRecyclerView.setLayoutManager(gridLayoutManager);
+
+
+
+//                        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+//                        mRecipesRecyclerView.setLayoutManager(gridLayoutManager);
+//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeActivity.this);
+//                        mRecipesRecyclerView.setLayoutManager(layoutManager);
                         mRecipesRecyclerView.setHasFixedSize(true);
                     }
                 });

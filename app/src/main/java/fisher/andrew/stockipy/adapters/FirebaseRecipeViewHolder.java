@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.models.Recipe;
-import fisher.andrew.stockipy.ui.recipes.RecipeDetailActivity;
 import fisher.andrew.stockipy.ui.recipes.SavedRecipesActivity;
 
 /**
@@ -43,7 +42,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
         ImageView recipeImage = (ImageView) mView.findViewById(R.id.foodImageView);
         TextView recipeTitle = (TextView) mView.findViewById(R.id.foodTitle);
 
-        Picasso.with(mContext).load(recipe.getImage()).centerCrop().into(recipeImage);
+        Picasso.with(mContext).load(recipe.getImage()).into(recipeImage);
         recipeTitle.setText(recipe.getLabel());
     }
 

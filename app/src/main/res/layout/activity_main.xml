@@ -38,16 +38,26 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:text="Favorite Recipes"
+        android:layout_width="match_parent"
+        android:textColor="#ffffff"
+        android:layout_height="wrap_content"
+        android:id="@+id/favoriteRecipesButton"
+        android:background="@color/colorAccent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/fridgeButton"/>
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Check the Fridge"
+        android:text="In the Kitchen"
         android:id="@+id/fridgeButton"
         android:background="@color/colorPrimary"
-
         android:textColor="#ffffff"
         android:layout_below="@+id/recipeButton"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"/>
 
 
 </RelativeLayout>
