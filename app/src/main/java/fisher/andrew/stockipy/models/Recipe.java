@@ -13,6 +13,8 @@ public class Recipe {
     Integer calories;
     Integer yield;
 
+    private String pushId;
+
     public Recipe(String label, String image, String url, ArrayList<String> ingredientLines, Integer calories, Integer yield) {
         this.label = label;
         this.image = image;
@@ -38,7 +40,9 @@ public class Recipe {
         return ingredientLines;
     }
 
-
+    public Integer getYield() {
+        return yield;
+    }
 
     public Integer caloriesPerPerson(){
         double calculated = (float)this.calories/this.yield;
@@ -46,8 +50,14 @@ public class Recipe {
         return  perPerson;
     }
 
-
-    public Integer getYield() {
-        return yield;
+    public String getPushId() {
+        return pushId;
     }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
+
+
+
 }
