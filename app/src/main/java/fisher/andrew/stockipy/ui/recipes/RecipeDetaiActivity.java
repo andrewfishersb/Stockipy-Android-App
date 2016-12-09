@@ -1,5 +1,6 @@
 package fisher.andrew.stockipy.ui.recipes;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -25,6 +28,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
+import fisher.andrew.stockipy.models.Recipe;
 import fisher.andrew.stockipy.ui.MainActivity;
 
 //Shows a single recipe
@@ -37,6 +41,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.ingredientListView) ListView mIngredientListView;
     @Bind(R.id.detailImage) ImageView mDetailImage;
     private String url;
+    private Recipe mRecipe;
 
 
 //    private ArrayList<String> favoriteRecipe = new ArrayList<String>();
@@ -48,28 +53,32 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_recipe_details);
         ButterKnife.bind(this);
-        Intent intent = getIntent();
 
+        //Information from the Recipe click
+        Intent intent = getIntent();
         String title = intent.getStringExtra("title");
         String image = intent.getStringExtra("image");
         url = intent.getStringExtra("url");
-        String yield = intent.getStringExtra("yield");
-        String calories = intent.getStringExtra("calories");
+        Integer yield = intent.getIntExtra("yield",0);
+        Integer calories = intent.getIntExtra("calories",0);
         ArrayList<String> ingredients = intent.getStringArrayListExtra("ingredients");
 
+
+        //sends information to the layout
         mDetailTitle.setText(title);
         mCaloriesTextView.setText(calories + " calories per person");
         mServingsTextView.setText("Serves " + yield);
-
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);
         mIngredientListView.setAdapter(adapter);
-
         Picasso.with(this).load(image).into(mDetailImage);
+
+        //create the Recipe
+        mRecipe = new Recipe(title,image,url,ingredients,calories,yield);
 
         mLinkTextView.setOnClickListener(this);
     }
 
-    //create menu at top
+    //creates menu at top
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -93,7 +102,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
             case R.id.action_favorite:
                 //does get here
 
-                saveToDatabase();
+                saveToFavorites();
 
 
                 return true;
@@ -114,7 +123,24 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    public void saveToDatabase(){
-        DatabaseReference favoriteRef = FirebaseDatabase.getInstance().getReference(Constants.)
+    public void saveToFavorites(){
+
+        //will get current user to associate favorite recipes to their account only
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        //states the child of recipes: userId
+        DatabaseReference favoriteRef = FirebaseDatabase.
+                getInstance()
+                .getReference(Constants.FIREBASE_CHILD_RECIPES)
+                .child(uid);
+
+        DatabaseReference pushRef = favoriteRef.push();
+        String pushId = pushRef.getKey();
+        mRecipe.setPushId(pushId);
+        pushRef.setValue(mRecipe);
+        Toast.makeText(RecipeDetaiActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
+
     }
 }
