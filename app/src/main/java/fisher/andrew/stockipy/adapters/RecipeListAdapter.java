@@ -19,7 +19,7 @@ import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.ui.recipes.RecipeDetailActivity;
 import fisher.andrew.stockipy.models.Recipe;
 
-
+//i doubt it but try to see if FirebaseRecipeViewHolder works instead
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private Context context;

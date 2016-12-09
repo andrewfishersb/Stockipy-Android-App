@@ -93,12 +93,8 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.action_favorite:
-                //possibly change the menu view to show a filled like
-//                MenuItem menuItem = new MenuItem();//R.id.action_favorite;
                 menuItem.setIcon(R.drawable.ic_favorite_white_24dp);
                 saveToFavorites();
-
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

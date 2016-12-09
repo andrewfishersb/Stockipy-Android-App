@@ -110,7 +110,7 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v){
-//            Intent intent = new Intent(RecipeActivity.this,YourRecipesActivity.class);
+//            Intent intent = new Intent(RecipeActivity.this,SavedRecipesActivity.class);
 //            intent.putExtra("favorites",favoriteRecipes);
 //            intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
 //            startActivity(intent);

@@ -35,7 +35,7 @@
                 android:value="fisher.andrew.stockipy.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.recipes.YourRecipesActivity"
+            android:name=".ui.recipes.SavedRecipesActivity"
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
