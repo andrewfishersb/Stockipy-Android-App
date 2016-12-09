@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "915649610065",
+    "firebase_url": "https://stockipy-2b6bf.firebaseio.com",
+    "project_id": "stockipy-2b6bf",
+    "storage_bucket": "stockipy-2b6bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915649610065:android:0273f560e43b4dec",
+        "android_client_info": {
+          "package_name": "fisher.andrew.stockipy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915649610065-edr23420ba97vt93hnmk8431tugqr5vp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fisher.andrew.stockipy",
+            "certificate_hash": "9C441F226D9F7118911500B6556746870CA83E59"
+          }
+        },
+        {
+          "client_id": "915649610065-ag82t7mgjbavt5pdm6408fdu76q32ag1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnVs8GbHnTcR-ht4iW5dehqWx7c5OHveo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915649610065-ag82t7mgjbavt5pdm6408fdu76q32ag1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
