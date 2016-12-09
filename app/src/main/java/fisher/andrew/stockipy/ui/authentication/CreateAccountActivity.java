@@ -1,10 +1,12 @@
 package fisher.andrew.stockipy.ui.authentication;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +25,8 @@ import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.ui.MainActivity;
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{
+
+    //from xml
     @Bind(R.id.enterEmailEditText) EditText mEnterEmailEditText;
     @Bind(R.id.enterNameEditText) EditText mEnterNameEditText;
     @Bind(R.id.enterPasswordEditText) EditText mPasswordEditText;
@@ -30,8 +34,12 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     @Bind(R.id.createAccountButton) Button mCreateAccountButton;
     @Bind(R.id.loginTextView) TextView mLoginTextView;
 
+    //to authenticate
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+
+    //progress diaglog
+    private ProgressDialog mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mLoginTextView.setOnClickListener(this);
         mCreateAccountButton.setOnClickListener(this);
         createAuthStateListener();
+        createAuthProgressDialog();
 
     }
 
@@ -61,11 +70,25 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+    private void createAuthProgressDialog(){
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Creating Account in Progress");
+        mAuthProgressDialog.cancel();
+    }
+
     private void createNewAccount(){
         final String name = mEnterNameEditText.getText().toString().trim();
         final String email = mEnterEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
+
+
+        boolean validEmail = isValidEmail(email);
+        boolean validPasswords = isValidPassword(password,confirmPassword);
+        boolean validName = isValidName(name);
+        if (!validEmail || !validName || !validPasswords) return;
+
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -94,6 +117,39 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             }
         };
     }
+
+
+    public boolean isValidEmail(String email){
+        //if email was blank or didnt match an email format
+        if(email == null && !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            mEnterEmailEditText.setError("Invalid Email!");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isValidPassword(String password, String confirmPassword){
+        if(password.length() <6 ){
+            mPasswordEditText.setError("Password under 6 characters");
+            return false;
+        }else if(!password.equals(confirmPassword)){
+            mPasswordEditText.setError("Passwords Do Not Match");
+            return false;
+        }
+        return true;
+    }
+
+
+    private boolean isValidName(String name) {
+        if (name.equals("")) {
+            mEnterNameEditText.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
+
+
 
     @Override
     public void onStart() {

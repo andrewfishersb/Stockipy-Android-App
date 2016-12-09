@@ -34,10 +34,10 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 |user input                | output
 |------------------------- | -------------
-|1. User will now you a search bar to search for a recipe by item: i.e. "Chicken"| Chicken Sandwich, Buffalo Wings, Jerk Chicken.
-|2.
-|3. User can create an account with an email and password, this will log them in
-|4. User can then log into the app| Welcome to Stockipy
+|1. User will now use a search bar to search for a recipe by item: i.e. "Chicken"| Chicken Sandwich, Buffalo Wings, Jerk Chicken.
+|2. User can create an account with an email and password | Welcome new user
+|3. User can then log into the app| Welcome to Stockipy
+|4. User can then log out| Goodbye!
 |5. Kitchen items can be added to a database: eggs | eggs have been added to your kitchen stock
 |6. Shopping items can be added to a database: cereal | cereal have been added to your shopping list
 |7. User can add a recipe to a list of favorites in the database | Favorite Recipes: Chicken Sandwich, Buffalo Wings
