@@ -55,6 +55,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 
 ## Future Goals and Ideas
+* use overflow menu on every page to log out or go to different parts of the page
 * when user signs up for the first time have a view that tells the user to search for a recipe in the top bar - on the recipe activity
 * Make api call on homepage so it doesnt load everytime I press back or find recipe (or on the search page when i create it).
 * If shopping list and fridge list look the same then maybe refractor to be the same layout
