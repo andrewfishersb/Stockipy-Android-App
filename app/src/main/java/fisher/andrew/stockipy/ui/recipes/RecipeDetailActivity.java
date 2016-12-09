@@ -1,11 +1,10 @@
 package fisher.andrew.stockipy.ui.recipes;
 
-import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -29,10 +28,9 @@ import butterknife.ButterKnife;
 import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.models.Recipe;
-import fisher.andrew.stockipy.ui.MainActivity;
 
 //Shows a single recipe
-public class RecipeDetaiActivity extends AppCompatActivity implements View.OnClickListener{
+public class RecipeDetailActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Bind(R.id.detailTitle) TextView mDetailTitle;
     @Bind(R.id.linkTextView) TextView mLinkTextView;
@@ -42,6 +40,9 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     @Bind(R.id.detailImage) ImageView mDetailImage;
     private String url;
     private Recipe mRecipe;
+
+    //variable up here so i can change icon when favorited
+    private MenuItem menuItem;
 
 
 //    private ArrayList<String> favoriteRecipe = new ArrayList<String>();
@@ -59,8 +60,8 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         String title = intent.getStringExtra("title");
         String image = intent.getStringExtra("image");
         url = intent.getStringExtra("url");
-        Integer yield = intent.getIntExtra("yield",0);
-        Integer calories = intent.getIntExtra("calories",0);
+        String yield = intent.getStringExtra("yield");
+        String calories = intent.getStringExtra("calories");
         ArrayList<String> ingredients = intent.getStringArrayListExtra("ingredients");
 
 
@@ -73,7 +74,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         Picasso.with(this).load(image).into(mDetailImage);
 
         //create the Recipe
-        mRecipe = new Recipe(title,image,url,ingredients,calories,yield);
+        mRecipe = new Recipe(title,image,url,ingredients,Integer.parseInt(calories),Integer.parseInt(yield));
 
         mLinkTextView.setOnClickListener(this);
     }
@@ -84,11 +85,15 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_favorite,menu);
 //        ButterKnife.bind(this);
-//        MenuItem menuItem = menu.findItem(R.id.action_favorite);
+
+        //keep?
+         menuItem = menu.findItem(R.id.action_favorite);//MenuItem
+
+
 //        menuItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
 //            @Override
 //            public boolean onMenuItemClick(MenuItem menuItem) {
-//                Toast.makeText(RecipeDetaiActivity.this,"Liked",Toast.LENGTH_SHORT);
+//                Toast.makeText(RecipeDetailActivity.this,"Liked",Toast.LENGTH_SHORT);
 //                return true;
 //            }
 //        });
@@ -100,8 +105,9 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.action_favorite:
-                //does get here
-
+                //possibly change the menu view to show a filled like
+//                MenuItem menuItem = new MenuItem();//R.id.action_favorite;
+                menuItem.setIcon(R.drawable.ic_favorite_white_24dp);
                 saveToFavorites();
 
 
@@ -123,6 +129,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+
     public void saveToFavorites(){
 
         //will get current user to associate favorite recipes to their account only
@@ -139,7 +146,7 @@ public class RecipeDetaiActivity extends AppCompatActivity implements View.OnCli
         String pushId = pushRef.getKey();
         mRecipe.setPushId(pushId);
         pushRef.setValue(mRecipe);
-        Toast.makeText(RecipeDetaiActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+        Toast.makeText(RecipeDetailActivity.this, "Favorited", Toast.LENGTH_SHORT).show();
 
 
     }

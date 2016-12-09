@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
-import fisher.andrew.stockipy.ui.recipes.RecipeDetaiActivity;
+import fisher.andrew.stockipy.ui.recipes.RecipeDetailActivity;
 import fisher.andrew.stockipy.models.Recipe;
 
 
@@ -68,7 +68,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
             //triggered when user click on an instance of the recycler view
             int itemPosition = getLayoutPosition();
-            Intent intent = new Intent(mContext, RecipeDetaiActivity.class);
+            Intent intent = new Intent(mContext, RecipeDetailActivity.class);
             Recipe currentRecipe = mRecipes.get(itemPosition);
             intent.putExtra("title",currentRecipe.getLabel());
             intent.putExtra("image", currentRecipe.getImage());

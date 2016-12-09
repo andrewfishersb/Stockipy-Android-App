@@ -56,7 +56,7 @@
                 android:value=".ui.shopping.ShoppingListActivity"/>
         </activity>
         <activity
-            android:name=".ui.recipes.RecipeDetaiActivity"
+            android:name=".ui.recipes.RecipeDetailActivity"
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
