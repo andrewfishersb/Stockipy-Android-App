@@ -29,7 +29,6 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
 
 
 
-//    @Bind(R.id.fridgeListView) ListView mFridgeListView;
 
     private DatabaseReference mKitchenReference;
     private FirebaseRecyclerAdapter mFirebaseRecyclerAdapter;
@@ -51,14 +50,6 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
         setUpFirebaseAdapter();
 
 
-        //WAS PREVIOUS CODE
-//        Intent intent = getIntent();
-//        if(intent.getExtras()!=null){
-//            itemsInFridge = intent.getStringArrayListExtra("fridge-update");
-
-//        }
-//        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, itemsInFridge);
-//        mFridgeListView.setAdapter(adapter);
         mStockKitchenButton.setOnClickListener(this);
 
     }
