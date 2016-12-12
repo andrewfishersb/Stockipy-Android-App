@@ -1,7 +1,6 @@
 package fisher.andrew.stockipy.ui.recipes;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -45,8 +44,7 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
     private MenuItem menuItem;
 
 
-//    private ArrayList<String> favoriteRecipe = new ArrayList<String>();
-//    private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
+
 
 
     @Override
