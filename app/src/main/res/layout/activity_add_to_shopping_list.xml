@@ -9,18 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.shopping.AddToShoppingListActivity">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Item to List"
-        android:id="@+id/addItemListButton"
-        android:textColor="#ffffff"
-        android:background="@color/colorPrimaryDark"
-        android:layout_marginBottom="32dp"
-        android:layout_above="@+id/backToListButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,12 +20,12 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back to List"
-        android:id="@+id/backToListButton"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
+        android:text="Add Item to List"
+        android:id="@+id/addItemListButton"
         android:textColor="#ffffff"
-        android:layout_alignRight="@+id/addItemListButton"
-        android:layout_alignEnd="@+id/addItemListButton" />
+        android:background="@color/colorPrimaryDark"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>

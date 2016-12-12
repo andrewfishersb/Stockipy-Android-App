@@ -26,11 +26,14 @@ public class AddToKitchenActivity extends AppCompatActivity implements View.OnCl
     @Bind(R.id.kitchenInputEditText) EditText mKitchenInputEditText;
 
     private Food mKitchenItem;
+
+    //is this needed?
     private DatabaseReference mAddToKitchenReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        //is this needed?
     mAddToKitchenReference = FirebaseDatabase.getInstance().getReference().child(Constants.FIREBASE_CHILD_KITCHEN);
 
 
@@ -62,7 +65,7 @@ public class AddToKitchenActivity extends AppCompatActivity implements View.OnCl
                 mKitchenItem.setPushId(pushId);
                 pushRef.setValue(mKitchenItem);
 
-                Toast.makeText(AddToKitchenActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddToKitchenActivity.this, "Saved to Kitchen", Toast.LENGTH_SHORT).show();
 
             }
         }
