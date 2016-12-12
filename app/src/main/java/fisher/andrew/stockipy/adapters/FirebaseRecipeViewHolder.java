@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.models.Recipe;
-import fisher.andrew.stockipy.ui.recipes.SavedRecipesActivity;
+import fisher.andrew.stockipy.ui.recipes.RecipeDetailActivity;
 
 /**
  * Created by andrewfisher on 12/6/16.
@@ -61,7 +61,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
                 int itemPosition = getLayoutPosition();
 
                 //where should this be sent
-                Intent intent = new Intent(mContext, SavedRecipesActivity.class);
+                Intent intent = new Intent(mContext, RecipeDetailActivity.class);
                 intent.putExtra("position",itemPosition); //is this needed?
                 intent.putExtra("recipes", Parcels.wrap(recipes));
 

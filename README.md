@@ -72,9 +72,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
 * categorize recipe cuisine (reach goal)
 
-# Known Bugs or Improvements
-* When an item is liked then the user goes to another page and comes back to the same page the heart is empty again
-* Can like the same item again
+
 
 ## Technologies Used
 
@@ -86,10 +84,12 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 * Edamam Recipe Search API
 
 
-## Known Bugs
-* Certain Information does not persist throughout the app as I am currently using ArrayLists instead of FireBase
-* User cant see the ingredients if they are in favorite section
-* favorite recipes can repeat themselves
+## Known Bugs or Improvements
+* Can't click into recipe detail from favorite recipes.
+* Calories are not appearing in firebase database.
+* favorite recipes can repeat themselves.
+* When an item is liked then the user goes to another page and comes back to the same page the heart is empty again.
+* Can like the same item again.
 
 ### License
 
