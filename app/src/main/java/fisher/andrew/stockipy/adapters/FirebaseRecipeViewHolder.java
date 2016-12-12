@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,6 +37,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
+        itemView.setOnClickListener(this); //get rid of this if i cant get rid of bug temporarily
     }
 
     public void bindRecipe(Recipe recipe){
@@ -49,6 +51,10 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onClick(View v){
+
+        Toast.makeText(mContext, "Item clicked", Toast.LENGTH_SHORT).show();
+
+
         final ArrayList<Recipe> recipes = new ArrayList<Recipe>();
         DatabaseReference recipeRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
         recipeRef.addListenerForSingleValueEvent(new ValueEventListener() {

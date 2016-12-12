@@ -1,6 +1,5 @@
 package fisher.andrew.stockipy.ui.recipes;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -31,10 +30,8 @@ import okhttp3.Response;
 //Will display a recycler view of recipes received from the api
 public class RecipeActivity extends AppCompatActivity {
     @Bind(R.id.recipesRecyclerView) RecyclerView mRecipesRecyclerView;
-    private ArrayList<String> favoriteRecipes = new ArrayList<String>();
     private RecipeListAdapter mAdapter;
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
-    private ArrayList<String> favoriteRecipesIngredients = new ArrayList<String>();
 
     //variables for the sharedpreferance search widget
     private SharedPreferences mSharedPreferences;
@@ -46,15 +43,6 @@ public class RecipeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
-
-
-        Intent intent = getIntent();
-
-        //checks that the intent has materials
-        if(intent.getExtras()!=null){
-            favoriteRecipes = intent.getStringArrayListExtra("recipe-update");
-            favoriteRecipesIngredients = intent.getStringArrayListExtra("ingredients-update");
-        }
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_FOOD,null);
