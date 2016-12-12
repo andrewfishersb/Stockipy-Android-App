@@ -1,15 +1,11 @@
 package fisher.andrew.stockipy.ui.shopping;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,40 +13,33 @@ import fisher.andrew.stockipy.R;
 
 
 public class ShoppingListActivity extends AppCompatActivity implements View.OnClickListener {
-   @Bind(R.id.shoppingListView) ListView mShoppingListView;
-   @Bind(R.id.goToAddItemListButton) Button goToAddItemListButton;
-    private ArrayList<String> shoppingList = new ArrayList<String>(Arrays.asList(
-            "Bell Peppers",
-            "Pork",
-            "Bread Crumbs",
-            "Onion",
-            "Sour Cream",
-            "Potatoes"
-    ));
+//   @Bind(R.id.shoppingListView) ListView mShoppingListView;
+//   @Bind(R.id.goToAddItemListButton) Button goToAddItemListButton;
+
+    @Bind(R.id.listHeaderTextView) TextView mListHeaderTextView;
+    @Bind(R.id.addFoodItemButton) Button mAddFoodItemButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shopping_list);
+
+        setContentView(R.layout.activity_items_on_list);
         ButterKnife.bind(this);
-        Intent intent = getIntent();
-
-        if(intent.getExtras()!=null){
-            shoppingList = intent.getStringArrayListExtra("update-list");
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, shoppingList);
-        mShoppingListView.setAdapter(adapter);
-
-     goToAddItemListButton.setOnClickListener(this);
+        mListHeaderTextView.setText("Shopping List");
+        mAddFoodItemButton.setText("Add Items to List");
 
 
+//        mShoppingListView.setAdapter(adapter);
+
+//     goToAddItemListButton.setOnClickListener(this);
+
+        mAddFoodItemButton.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v){
         Intent intent = new Intent(ShoppingListActivity.this,AddToShoppingListActivity.class);
-        intent.putExtra("list", shoppingList);
+//        intent.putExtra("list", shoppingList);
         startActivity(intent);
     }
 }

@@ -19,7 +19,7 @@ import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.models.Food;
 
-//takes the  user input and adds it to the firebase database element of fridge
+//takes the  user input and adds it to the firebase database element of fridge IF ADD A SEARCH WIDGET MIGHT NEED TO MOVE OVER CODE
 public class AddToKitchenActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addItemToKitchenButton) Button mAddItemToKitchenButton;
 //    @Bind(R.id.backToFridgeButton) Button mBackToFridgeButton; ->use manifest
@@ -64,17 +64,8 @@ public class AddToKitchenActivity extends AppCompatActivity implements View.OnCl
 
                 Toast.makeText(AddToKitchenActivity.this, "Saved", Toast.LENGTH_SHORT).show();
 
-
-
-//                saveItemToKitchenFirebase(userInput);
-//                Intent intent = new Intent(AddToKitchenActivity.this,KitchenActivity.class);
-//                intent.putExtra("item",userInput); // remove if no need for object passing
-//                startActivity(intent);
             }
         }
     }
 
-//    public void saveItemToKitchenFirebase(String item){
-//        mAddToKitchenReference.push().setValue(item);
-//    }
 }

@@ -13,13 +13,15 @@ import fisher.andrew.stockipy.R;
 
 //need to refractor before this works
 public class KitchenActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.stockKitchenButton) Button mStockKitchenButton;
+    @Bind(R.id.addFoodItemButton) Button mStockKitchenButton;
 //    @Bind(R.id.fridgeListView) ListView mFridgeListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kitchen_stock);
+
+        //USE ONE LAYOUT AND DETERMINE THE TITLE BASED OFF OF THE ACTIVITY?
+        setContentView(R.layout.activity_items_on_list);
         ButterKnife.bind(this);
 
         Intent intent = getIntent();

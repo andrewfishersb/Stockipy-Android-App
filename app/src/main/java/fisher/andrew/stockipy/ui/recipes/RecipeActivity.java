@@ -12,7 +12,6 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,10 +28,8 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-//either a use the pervious search or have a page that when no API say something like search for recipes
-
 //Will display a recycler view of recipes received from the api
-public class RecipeActivity extends AppCompatActivity implements View.OnClickListener{
+public class RecipeActivity extends AppCompatActivity {
     @Bind(R.id.recipesRecyclerView) RecyclerView mRecipesRecyclerView;
     private ArrayList<String> favoriteRecipes = new ArrayList<String>();
     private RecipeListAdapter mAdapter;
@@ -107,14 +104,6 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View v){
-//            Intent intent = new Intent(RecipeActivity.this,SavedRecipesActivity.class);
-//            intent.putExtra("favorites",favoriteRecipes);
-//            intent.putExtra("favorites-ingredients",favoriteRecipesIngredients);
-//            startActivity(intent);
-    }
-
     public void getRecipes(String query){
         final RecipeService recipeService = new RecipeService();
 
@@ -140,13 +129,6 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
                         //determines layout being used
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(RecipeActivity.this, 2);
                         mRecipesRecyclerView.setLayoutManager(gridLayoutManager);
-
-
-
-//                        StaggeredGridLayoutManager gridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-//                        mRecipesRecyclerView.setLayoutManager(gridLayoutManager);
-//                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(RecipeActivity.this);
-//                        mRecipesRecyclerView.setLayoutManager(layoutManager);
                         mRecipesRecyclerView.setHasFixedSize(true);
                     }
                 });

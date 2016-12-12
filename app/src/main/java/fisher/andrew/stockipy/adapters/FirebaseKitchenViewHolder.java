@@ -24,7 +24,7 @@ public class FirebaseKitchenViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindKitchen(String item){
-        TextView kitchenItem = (TextView) mView.findViewById(R.id.kitchenTextView);
+        TextView kitchenItem = (TextView) mView.findViewById(R.id.listHeaderTextView);
         kitchenItem.setText(item);
 
     }
