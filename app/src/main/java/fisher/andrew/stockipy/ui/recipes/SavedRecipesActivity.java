@@ -11,8 +11,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.Constants;
@@ -22,8 +20,6 @@ import fisher.andrew.stockipy.models.Recipe;
 
 //Displays Recipes you have added to a personal list
 public class SavedRecipesActivity extends AppCompatActivity {
-    private ArrayList<String> favoriteRecipes;//needed?
-
     @Bind(R.id.favoriteRecipesRecyclerView) RecyclerView mFavoriteRecipesRecyclerView;
     private DatabaseReference mFavoriteRecipesReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
@@ -40,13 +36,6 @@ public class SavedRecipesActivity extends AppCompatActivity {
         mFavoriteRecipesReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES).child(uid);
         setUpFirebaseAdapter();
 
-
-
-//old code dont know if needed
-//        Intent intent = getIntent();
-//        favoriteRecipes = intent.getStringArrayListExtra("favorites");
-//        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,favoriteRecipes);
-//        mFavoriteRecipesRecyclerView.setAdapter(adapter);
 
     }
 

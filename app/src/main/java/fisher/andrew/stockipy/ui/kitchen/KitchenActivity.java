@@ -22,7 +22,6 @@ import fisher.andrew.stockipy.adapters.FirebaseKitchenViewHolder;
 import fisher.andrew.stockipy.models.Food;
 
 
-//need to refractor before this works
 public class KitchenActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.addFoodItemButton) Button mStockKitchenButton;
     @Bind(R.id.foodItemRecyclerView) RecyclerView  mFoodItemRecyclerView;
@@ -38,8 +37,6 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //USE ONE LAYOUT AND DETERMINE THE TITLE BASED OFF OF THE ACTIVITY?
         setContentView(R.layout.activity_items_on_list);
         ButterKnife.bind(this);
 
@@ -57,7 +54,6 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v){
         Intent intent = new Intent(KitchenActivity.this,AddToKitchenActivity.class);
-//        intent.putExtra("fridge",itemsInFridge);
         startActivity(intent);
     }
 
@@ -88,4 +84,3 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
 }
 
 
-// there search widget is added to page may need onDataChange to check for changes

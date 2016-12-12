@@ -37,7 +37,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this); //get rid of this if i cant get rid of bug temporarily
+        itemView.setOnClickListener(this);
     }
 
     public void bindRecipe(Recipe recipe){
@@ -68,7 +68,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
 
                 //where should this be sent
                 Intent intent = new Intent(mContext, RecipeDetailActivity.class);
-                intent.putExtra("position",itemPosition); //is this needed?
+                intent.putExtra("position",itemPosition);
                 intent.putExtra("recipes", Parcels.wrap(recipes));
 
                 mContext.startActivity(intent);
