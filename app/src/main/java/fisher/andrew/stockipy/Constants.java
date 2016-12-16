@@ -1,8 +1,6 @@
 package fisher.andrew.stockipy;
 
-/**
- * Created by Guest on 12/2/16.
- */
+
 public class Constants {
     public static final String EDAMAM_API_KEY = BuildConfig.EDAMAM_API_KEY;
     public static final String EDAMAM_API_ID = BuildConfig.EDAMAM_API_ID;
@@ -14,4 +12,6 @@ public class Constants {
     public static final String FIREBASE_CHILD_RECIPES = "recipes";
     public static final String PREFERENCES_SEARCH_FOOD = "foodTitle";
     public static final String FIREBASE_QUERY_INDEX = "index";
+    public static final String EXTRA_KEY_POSITION = "position";
+    public static final String EXTRA_KEY_RESTAURANTS = "recipes";
 }
