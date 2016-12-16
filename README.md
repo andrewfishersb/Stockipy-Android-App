@@ -42,6 +42,15 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 |6. Shopping items can be added to a database: cereal | cereal have been added to your shopping list
 |7. User can add a recipe to a list of favorites in the database | Favorite Recipes: Chicken Sandwich, Buffalo Wings
 
+### Week 4 Specs
+
+|user input                |
+|------------------------- |
+|1. User can swipe right to delete a a kitchen items or shopping list item|
+|2. User can swipe left to add kitchen item to cart, or to add a shopping list item to your kitchen on their respective activities |
+|3. User can navigate to other pages easier with the overflow menu|
+|4. User can change apps look by working in landscape mode|
+
 
 ## Setup/Installation Requirements
 
@@ -57,8 +66,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 ## Future Goals and Ideas
 * use overflow menu on every page to log out or go to different parts of the page
 * when user signs up for the first time have a view that tells the user to search for a recipe in the top bar - on the recipe activity
-* Make api call on homepage so it doesnt load everytime I press back or find recipe (or on the search page when i create it).
-* If shopping list and fridge list look the same then maybe refractor to be the same layout
+* Make api call o n homepage so it doesnt load everytime I press back orfind recipe (or on the search page when i create it).
 * make input only one line for new items
 * Remove back to list button once a database is set up and use the up top button instead
 * Add items and don't go back until user says so - maybe implement a toolbar so one can send information back
@@ -66,7 +74,6 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 * When adding an item use a dialog on the same activity instead of a new page
 * When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
 * Dialog box which displays all ingredients and check boxes for what to add to your shopping list
-* when displaying recipes try and use a staggeredgridlayoutmanager
 * Drop down menu or tool bar that has quick ways to navigate towards
 * Set number of a specific items or cups/tablespoons left of some item (reach goal)
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
@@ -85,9 +92,6 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 
 
 ## Known Bugs or Improvements
-* Can't click into recipe detail from favorite recipes.
-* Calories are not appearing in firebase database.
-* favorite recipes can repeat themselves.
 * When an item is liked then the user goes to another page and comes back to the same page the heart is empty again.
 * Can like the same item again.
 
