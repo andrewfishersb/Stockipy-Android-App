@@ -28,7 +28,7 @@ public class SavedRecipesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_recipes);
-        ButterKnife.bind(this);
+
 
 //        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 //        String uid = user.getUid();
@@ -57,10 +57,10 @@ public class SavedRecipesActivity extends AppCompatActivity {
 //
 //    }
 
-    @Override
-    protected void onDestroy(){
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
+//    @Override
+//    protected void onDestroy(){
+//        super.onDestroy();
+//        mFirebaseAdapter.cleanup();
+//    }
 
 }
