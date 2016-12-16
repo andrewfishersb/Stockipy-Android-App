@@ -75,11 +75,9 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
 
                 int itemPosition = getLayoutPosition();
 
-                //where should this be sent
+
                 Intent intent = new Intent(mContext, RecipeDetailActivity.class);
                 Recipe recipeToSend = recipes.get(itemPosition);
-//                intent.putExtra("position",itemPosition);
-//                intent.putExtra("recipes", Parcels.wrap(recipes));
                 intent.putExtra("recipe", Parcels.wrap(recipeToSend));
 
                 mContext.startActivity(intent);

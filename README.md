@@ -1,17 +1,16 @@
 # Stockipy
 
-## A final project for the Android segment at Epicodus by making a full fledged app, Started on 11/18//16
+## A final project for the Android segment at Epicodus by making a full fledged app, Started on 11/18/16
 
 #### By **Andrew Fisher**
 
 ## Description
-This app is a multi purpose app grocery and recipe app. The user will be able to save recipes or upload their own recipes. The user can put the recipes into a grocery list to make shopping at the store fast and easy. I would also like the user to keep stock of their fridge so they know what ingredients they do not have to buy.
-
+This a multi-purpose app, combining shopping lists and recipes. A User can look up recipes using the Edamam API, add and delete items from a shopping cart, and keep track of items in your kitchen.
 ## Specifications
 
 
 
-### Week 1 Specs
+### Week 1
 
 
 
@@ -22,7 +21,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 |3. user can see a list of recipes and can click on a recipe to see ingredients| Ingredients: spaghetti, pork, bell pepper,onion. Instructions: Cook
 |4. user can add a recipe to their own personal list | Pork and Breadcrumbs, Mashed Potatoes.
 
-### Week 2 Specs
+### Week 2
 
 |user input                | output
 |------------------------- | -------------
@@ -30,7 +29,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 |2. The app will show all ingredients calorie information when recipe is clicked| 500 calories per person, peppers, mashed potatoes
 |3. The app will use link the user to the webpage with more information about the recipe| www.recipes.com/bbq-sandwich
 
-### Week 3 Specs
+### Week 3
 
 |user input                | output
 |------------------------- | -------------
@@ -42,7 +41,7 @@ This app is a multi purpose app grocery and recipe app. The user will be able to
 |6. Shopping items can be added to a database: cereal | cereal have been added to your shopping list
 |7. User can add a recipe to a list of favorites in the database | Favorite Recipes: Chicken Sandwich, Buffalo Wings
 
-### Week 4 Specs
+### Week 4
 
 |user input                |
 |------------------------- |

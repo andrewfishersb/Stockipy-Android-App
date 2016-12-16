@@ -21,7 +21,6 @@ import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.ui.recipes.RecipeDetailActivity;
 import fisher.andrew.stockipy.models.Recipe;
 
-//i doubt it but try to see if FirebaseRecipeViewHolder works instead
 public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private Context context;
@@ -73,12 +72,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             Intent intent = new Intent(mContext, RecipeDetailActivity.class);
             Recipe currentRecipe = mRecipes.get(itemPosition);
             intent.putExtra("recipe", Parcels.wrap(currentRecipe));
-//            intent.putExtra("title",currentRecipe.getLabel());
-//            intent.putExtra("image", currentRecipe.getImage());
-//            intent.putExtra("ingredients",currentRecipe.getIngredientLines());
-//            intent.putExtra("url", currentRecipe.getUrl());
-//            intent.putExtra("yield", currentRecipe.getYield().toString());
-//            intent.putExtra("calories",currentRecipe.getCalories().toString());
             mContext.startActivity(intent);
         }
     }

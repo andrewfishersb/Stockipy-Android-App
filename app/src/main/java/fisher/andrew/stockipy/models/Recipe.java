@@ -49,8 +49,6 @@ public class Recipe {
     }
 
     public Integer getCalories(){
-//        double calculated = (float)this.calories/this.yield;
-//        calories = (int) calculated;
         return  calories;
     }
 

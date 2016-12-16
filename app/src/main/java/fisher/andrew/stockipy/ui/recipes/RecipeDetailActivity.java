@@ -55,16 +55,8 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_view_recipe_details);
         ButterKnife.bind(this);
 
+        //unwraps parcel, set to an object so I can set the layout details
         Intent intent = getIntent();
-        //Parceled Information from Viewholder or adapter
-//        ArrayList<Recipe> allRecipes = Parcels.unwrap(intent.getParcelableExtra("recipes"));
-//        int clickedPosition = intent.getIntExtra("position",0);
-
-
-
-
-        //Information from the Recipe click
-//        Recipe clickedRecipe = allRecipes.get(clickedPosition);
         Recipe clickedRecipe = Parcels.unwrap(intent.getParcelableExtra("recipe"));
         String title = clickedRecipe.getLabel();
         String image = clickedRecipe.getImage();
