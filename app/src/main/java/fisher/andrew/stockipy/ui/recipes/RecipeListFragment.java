@@ -1,16 +1,20 @@
 package fisher.andrew.stockipy.ui.recipes;
 
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,9 +31,9 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-//Will display a recycler view of recipes received from the api
-public class RecipeActivity extends AppCompatActivity {
-    @Bind(R.id.recipesRecyclerView) RecyclerView mRecipesRecyclerView;
+public class RecipeListFragment extends Fragment {
+    @Bind(R.id.recipesRecyclerView)
+    RecyclerView mRecipesRecyclerView;
     private RecipeListAdapter mAdapter;
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
 
@@ -38,13 +42,30 @@ public class RecipeActivity extends AppCompatActivity {
     private SharedPreferences.Editor mEditor;
     private String mRecentSearch;
 
-    //if no shared preferences maybe show a different view
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipes);
-        ButterKnife.bind(this);
+    public RecipeListFragment() {
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        mEditor = mSharedPreferences.edit();
+
+
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view =inflater.inflate(R.layout.fragment_recipe_list, container, false);
+        ButterKnife.bind(this, view);
+
+        //was previously in on create part of recipelistactivity
         mRecentSearch = mSharedPreferences.getString(Constants.PREFERENCES_SEARCH_FOOD,null);
 
         if(mRecentSearch !=null){
@@ -52,26 +73,23 @@ public class RecipeActivity extends AppCompatActivity {
         }
 
 
+        return view;
     }
 
     //search menu create
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        MenuInflater inflater = getMenuInflater();
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        super.onCreateOptionsMenu(menu,inflater);
         inflater.inflate(R.menu.menu_search, menu);
-        ButterKnife.bind(this);
-
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
             @Override
             public boolean onQueryTextSubmit(String query){
                 addToSharedPreferences(query);
-
 
                 getRecipes(query);
                 return false;
@@ -83,7 +101,7 @@ public class RecipeActivity extends AppCompatActivity {
             }
         });
 
-        return true;
+
     }
 
     //This ensures that all functionality from the parent class will still apply despite us manually overriding portions of the menu's functionality.
@@ -107,15 +125,15 @@ public class RecipeActivity extends AppCompatActivity {
                 //calls on the service to pull information from the JSON set to an arraylist of recipes
                 mRecipes = recipeService.proccessResults(response);
 
-                RecipeActivity.this.runOnUiThread(new Runnable() {
+                getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         //injects the recipes into an adapter
-                        mAdapter = new RecipeListAdapter(mRecipes, getApplicationContext());
+                        mAdapter = new RecipeListAdapter(mRecipes, getActivity());
                         mRecipesRecyclerView.setAdapter(mAdapter);
 
-                        //determines layout being used
-                        GridLayoutManager gridLayoutManager = new GridLayoutManager(RecipeActivity.this, 2);
+                        //determines layout being used LANDSCAPE WILL WANT A DIFFERENT LAYOUT
+                        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
                         mRecipesRecyclerView.setLayoutManager(gridLayoutManager);
                         mRecipesRecyclerView.setHasFixedSize(true);
                     }
@@ -126,10 +144,10 @@ public class RecipeActivity extends AppCompatActivity {
 
 
     }
-
     //write to shared preferance
     private void addToSharedPreferences(String searchTerm){
         mEditor.putString(Constants.PREFERENCES_SEARCH_FOOD, searchTerm).apply();
     }
+
 
 }

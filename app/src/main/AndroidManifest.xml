@@ -20,7 +20,7 @@
                 android:value="fisher.andrew.stockipy.ui.MainActivity"/>
         </activity>
         <activity
-            android:name=".ui.recipes.RecipeActivity"
+            android:name=".ui.recipes.RecipeListActivity"
             android:label="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -39,7 +39,7 @@
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.recipes.RecipeActivity"/>
+                android:value=".ui.recipes.RecipeListActivity"/>
         </activity>
         <activity
             android:name=".ui.shopping.AddToShoppingListActivity"
@@ -60,7 +60,7 @@
             android:label="Back to Recipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.recipes.RecipeActivity"/>
+                android:value=".ui.recipes.RecipeListActivity"/>
         </activity>
         <activity
             android:name=".ui.authentication.CreateAccountActivity"

@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.ui.authentication.LoginActivity;
 import fisher.andrew.stockipy.ui.kitchen.KitchenActivity;
-import fisher.andrew.stockipy.ui.recipes.RecipeActivity;
+import fisher.andrew.stockipy.ui.recipes.RecipeListActivity;
 import fisher.andrew.stockipy.ui.recipes.SavedRecipesActivity;
 import fisher.andrew.stockipy.ui.shopping.ShoppingListActivity;
 
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         if(v==mRecipeButton){
-            Intent intent = new Intent(MainActivity.this,RecipeActivity.class);
+            Intent intent = new Intent(MainActivity.this,RecipeListActivity.class);
             startActivity(intent);
         }
         if(v==mShoppingListButton){
