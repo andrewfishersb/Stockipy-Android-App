@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -54,9 +53,6 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
 
     @Override
     public void onClick(View v){
-
-        Toast.makeText(mContext, "Item clicked", Toast.LENGTH_SHORT).show();
-
 
         final ArrayList<Recipe> recipes = new ArrayList<Recipe>();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

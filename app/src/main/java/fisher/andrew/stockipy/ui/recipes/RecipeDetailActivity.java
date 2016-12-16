@@ -47,8 +47,6 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
 
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +83,9 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
         mLinkTextView.setOnClickListener(this);
     }
 
+
+
+    //I think this can all stay on this page as it has to do with the menu
     //creates menu at top
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
