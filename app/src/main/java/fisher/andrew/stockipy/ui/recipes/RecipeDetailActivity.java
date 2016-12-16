@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +21,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -53,14 +57,25 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_view_recipe_details);
         ButterKnife.bind(this);
 
-        //Information from the Recipe click
         Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        String image = intent.getStringExtra("image");
-        url = intent.getStringExtra("url");
-        String yield = intent.getStringExtra("yield");
-        String calories = intent.getStringExtra("calories");
-        ArrayList<String> ingredients = intent.getStringArrayListExtra("ingredients");
+        //Parceled Information from Viewholder or adapter
+//        ArrayList<Recipe> allRecipes = Parcels.unwrap(intent.getParcelableExtra("recipes"));
+//        int clickedPosition = intent.getIntExtra("position",0);
+
+
+
+
+        //Information from the Recipe click
+//        Recipe clickedRecipe = allRecipes.get(clickedPosition);
+        Recipe clickedRecipe = Parcels.unwrap(intent.getParcelableExtra("recipe"));
+        String title = clickedRecipe.getLabel();
+        String image = clickedRecipe.getImage();
+        url = clickedRecipe.getUrl();
+        Integer yield = clickedRecipe.getYield();
+        Integer calories = clickedRecipe.caloriesPerPerson();
+        ArrayList<String> ingredients = clickedRecipe.getIngredientLines();
+
+
 
 
         //sends information to the layout
@@ -71,8 +86,10 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
         mIngredientListView.setAdapter(adapter);
         Picasso.with(this).load(image).into(mDetailImage);
 
+        Toast.makeText(RecipeDetailActivity.this, yield, Toast.LENGTH_SHORT).show();
+
         //create the Recipe
-        mRecipe = new Recipe(title,image,url,ingredients,Integer.parseInt(calories),Integer.parseInt(yield));
+        mRecipe = new Recipe(title,image,url,ingredients,calories,yield);
 
         mLinkTextView.setOnClickListener(this);
     }

@@ -3,11 +3,14 @@ package fisher.andrew.stockipy.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,20 +59,28 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
 
 
         final ArrayList<Recipe> recipes = new ArrayList<Recipe>();
-        DatabaseReference recipeRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+
+
+        DatabaseReference recipeRef = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES).child(uid);
         recipeRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for(DataSnapshot snapshot : dataSnapshot.getChildren()){
                     recipes.add(snapshot.getValue(Recipe.class));
+
                 }
 
                 int itemPosition = getLayoutPosition();
 
                 //where should this be sent
                 Intent intent = new Intent(mContext, RecipeDetailActivity.class);
-                intent.putExtra("position",itemPosition);
-                intent.putExtra("recipes", Parcels.wrap(recipes));
+                Recipe recipeToSend = recipes.get(itemPosition);
+//                intent.putExtra("position",itemPosition);
+//                intent.putExtra("recipes", Parcels.wrap(recipes));
+                intent.putExtra("recipe", Parcels.wrap(recipeToSend));
 
                 mContext.startActivity(intent);
             }

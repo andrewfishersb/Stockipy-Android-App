@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import org.parceler.Parcels;
+
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -70,12 +72,13 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, RecipeDetailActivity.class);
             Recipe currentRecipe = mRecipes.get(itemPosition);
-            intent.putExtra("title",currentRecipe.getLabel());
-            intent.putExtra("image", currentRecipe.getImage());
-            intent.putExtra("ingredients",currentRecipe.getIngredientLines());
-            intent.putExtra("url", currentRecipe.getUrl());
-            intent.putExtra("yield", currentRecipe.getYield().toString());
-            intent.putExtra("calories",currentRecipe.caloriesPerPerson().toString());
+            intent.putExtra("recipe", Parcels.wrap(currentRecipe));
+//            intent.putExtra("title",currentRecipe.getLabel());
+//            intent.putExtra("image", currentRecipe.getImage());
+//            intent.putExtra("ingredients",currentRecipe.getIngredientLines());
+//            intent.putExtra("url", currentRecipe.getUrl());
+//            intent.putExtra("yield", currentRecipe.getYield().toString());
+//            intent.putExtra("calories",currentRecipe.caloriesPerPerson().toString());
             mContext.startActivity(intent);
         }
     }
