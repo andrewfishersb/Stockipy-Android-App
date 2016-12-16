@@ -16,6 +16,7 @@ public class Recipe {
     Integer calories;
     Integer yield;
     private String pushId;
+    String index;
 
     public Recipe(){}
 
@@ -26,6 +27,7 @@ public class Recipe {
         this.ingredientLines = ingredientLines;
         this.calories = calories;
         this.yield = yield;
+        this.index = "not_specified";
     }
 
     public String getLabel() {
@@ -60,6 +62,12 @@ public class Recipe {
         this.pushId = pushId;
     }
 
+    public String getIndex() {
+        return index;
+    }
 
+    public void setIndex(String index) {
+        this.index = index;
+    }
 
 }
