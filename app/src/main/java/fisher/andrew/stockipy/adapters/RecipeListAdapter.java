@@ -78,7 +78,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 //            intent.putExtra("ingredients",currentRecipe.getIngredientLines());
 //            intent.putExtra("url", currentRecipe.getUrl());
 //            intent.putExtra("yield", currentRecipe.getYield().toString());
-//            intent.putExtra("calories",currentRecipe.caloriesPerPerson().toString());
+//            intent.putExtra("calories",currentRecipe.getCalories().toString());
             mContext.startActivity(intent);
         }
     }

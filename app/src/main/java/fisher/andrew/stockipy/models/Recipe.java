@@ -48,10 +48,10 @@ public class Recipe {
         return yield;
     }
 
-    public Integer caloriesPerPerson(){
-        double calculated = (float)this.calories/this.yield;
-        Integer perPerson = (int) calculated;
-        return  perPerson;
+    public Integer getCalories(){
+//        double calculated = (float)this.calories/this.yield;
+//        calories = (int) calculated;
+        return  calories;
     }
 
     public String getPushId() {

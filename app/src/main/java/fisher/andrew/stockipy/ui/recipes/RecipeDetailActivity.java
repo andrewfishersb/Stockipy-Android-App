@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +22,6 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -72,21 +70,22 @@ public class RecipeDetailActivity extends AppCompatActivity implements View.OnCl
         String image = clickedRecipe.getImage();
         url = clickedRecipe.getUrl();
         Integer yield = clickedRecipe.getYield();
-        Integer calories = clickedRecipe.caloriesPerPerson();
+        Integer calories = clickedRecipe.getCalories();
         ArrayList<String> ingredients = clickedRecipe.getIngredientLines();
 
 
 
+        //calculates an estimated Calories Per person rounded
+        int roundedCalories = calories/yield;
 
         //sends information to the layout
         mDetailTitle.setText(title);
-        mCaloriesTextView.setText(calories + " calories per person");
+        mCaloriesTextView.setText(roundedCalories + " calories per person");
         mServingsTextView.setText("Serves " + yield);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);
         mIngredientListView.setAdapter(adapter);
         Picasso.with(this).load(image).into(mDetailImage);
 
-        Toast.makeText(RecipeDetailActivity.this, yield, Toast.LENGTH_SHORT).show();
 
         //create the Recipe
         mRecipe = new Recipe(title,image,url,ingredients,calories,yield);
