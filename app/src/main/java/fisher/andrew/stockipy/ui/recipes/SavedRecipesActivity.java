@@ -20,47 +20,47 @@ import fisher.andrew.stockipy.models.Recipe;
 
 //Displays Recipes you have added to a personal list
 public class SavedRecipesActivity extends AppCompatActivity {
-//    @Bind(R.id.favoriteRecipesRecyclerView) RecyclerView mFavoriteRecipesRecyclerView;
-//    private DatabaseReference mFavoriteRecipesReference;
-//    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    @Bind(R.id.favoriteRecipesRecyclerView) RecyclerView mFavoriteRecipesRecyclerView;
+    private DatabaseReference mFavoriteRecipesReference;
+    private FirebaseRecyclerAdapter mFirebaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_recipes);
+        ButterKnife.bind(this);
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
 
-//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//        String uid = user.getUid();
-//
-//        mFavoriteRecipesReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES).child(uid);
-//        setUpFirebaseAdapter();
+        mFavoriteRecipesReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES).child(uid);
+        setUpFirebaseAdapter();
 
 
     }
 
-//    private void setUpFirebaseAdapter(){
-//        mFirebaseAdapter = new FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder>(Recipe.class, R.layout.recipe_list_item, FirebaseRecipeViewHolder.class,mFavoriteRecipesReference){
-//            @Override
-//            protected void populateViewHolder(FirebaseRecipeViewHolder viewHolder,Recipe model, int position){
-//                viewHolder.bindRecipe(model);
-//            }
-//        };
-//
-//
-//
-//
-//        mFavoriteRecipesRecyclerView.setHasFixedSize(true);
-//        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-//        mFavoriteRecipesRecyclerView.setLayoutManager(gridLayoutManager);
-//        mFavoriteRecipesRecyclerView.setAdapter(mFirebaseAdapter);
-//
-//    }
+    private void setUpFirebaseAdapter(){
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder>(Recipe.class, R.layout.recipe_list_item, FirebaseRecipeViewHolder.class,mFavoriteRecipesReference){
+            @Override
+            protected void populateViewHolder(FirebaseRecipeViewHolder viewHolder,Recipe model, int position){
+                viewHolder.bindRecipe(model);
+            }
+        };
 
-//    @Override
-//    protected void onDestroy(){
-//        super.onDestroy();
-//        mFirebaseAdapter.cleanup();
-//    }
+
+
+
+        mFavoriteRecipesRecyclerView.setHasFixedSize(true);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        mFavoriteRecipesRecyclerView.setLayoutManager(gridLayoutManager);
+        mFavoriteRecipesRecyclerView.setAdapter(mFirebaseAdapter);
+
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+        mFirebaseAdapter.cleanup();
+    }
 
 }

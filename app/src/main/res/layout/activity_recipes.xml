@@ -10,10 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.recipes.RecipeListActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recipesRecyclerView"/>
-
+    <fragment
+        android:id="@+id/fragmentRecipeList"
+        android:name="fisher.andrew.stockipy.ui.recipes.RecipeListFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_saved_recipe" />
 
 </RelativeLayout>
