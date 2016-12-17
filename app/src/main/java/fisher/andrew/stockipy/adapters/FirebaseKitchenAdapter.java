@@ -8,8 +8,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
 
 import fisher.andrew.stockipy.models.Food;
 import fisher.andrew.stockipy.util.ItemTouchHelperAdapter;
@@ -19,6 +24,8 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
     private DatabaseReference mRef;
     private OnStartDragListener mOnStartDragListener;
     private Context mContext;
+    private ChildEventListener mChildEventListener;
+    private ArrayList<Food> mKitchenFood = new ArrayList<>();
 
     public FirebaseKitchenAdapter(Class<Food> modelClass, int modelLayout,
                                          Class<FirebaseKitchenViewHolder> viewHolderClass,
@@ -27,6 +34,33 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
         mContext = context;
+
+        mChildEventListener = mRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                mKitchenFood.add(dataSnapshot.getValue(Food.class));
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -37,7 +71,6 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
             public boolean onTouch(View v, MotionEvent event){
                 if(MotionEventCompat.getActionMasked(event)==MotionEvent.ACTION_DOWN){
                     mOnStartDragListener.onStartDrag(viewHolder);
-                    Toast.makeText(mContext, "Does this work", Toast.LENGTH_SHORT).show();
                 }
                 return false;
             }
@@ -46,11 +79,13 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+        notifyItemChanged(fromPosition,toPosition);
         return false;
     }
 
     @Override
     public void onItemDismiss(int position) {
         //delete swiped item
+        getRef(position).removeValue();
     }
 }
