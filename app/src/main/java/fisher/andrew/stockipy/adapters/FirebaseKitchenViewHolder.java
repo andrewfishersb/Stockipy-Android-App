@@ -13,6 +13,7 @@ import fisher.andrew.stockipy.models.Food;
  */
 
 public class FirebaseKitchenViewHolder extends RecyclerView.ViewHolder {
+    public TextView mKitchenItemTextView;
     View mView;
     Context mContext;
 
@@ -23,8 +24,8 @@ public class FirebaseKitchenViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindKitchen(Food item){
-        TextView kitchenItem = (TextView) mView.findViewById(R.id.foodListItem);
-        kitchenItem.setText(item.getName());
+        mKitchenItemTextView = (TextView) mView.findViewById(R.id.foodListItem);
+        mKitchenItemTextView.setText(item.getName());
 
     }
 

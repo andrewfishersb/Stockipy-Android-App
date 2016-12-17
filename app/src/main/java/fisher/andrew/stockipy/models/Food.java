@@ -12,11 +12,13 @@ public class Food {
 
     String name;
     private String pushId;
+    String index;
 
     public Food(){}
 
     public Food(String name) {
         this.name = name;
+        this.index = "not_specified";
     }
 
     public void setPushId(String pushId) {

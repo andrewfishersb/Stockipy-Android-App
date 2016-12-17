@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Button;
 
+import com.daimajia.swipe.SwipeLayout;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,20 +20,21 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import fisher.andrew.stockipy.Constants;
 import fisher.andrew.stockipy.R;
+import fisher.andrew.stockipy.adapters.FirebaseKitchenAdapter;
 import fisher.andrew.stockipy.adapters.FirebaseKitchenViewHolder;
 import fisher.andrew.stockipy.models.Food;
+import fisher.andrew.stockipy.util.ItemTouchHelperAdapter;
+import fisher.andrew.stockipy.util.OnStartDragListener;
+import fisher.andrew.stockipy.util.SimpleItemTouchHelperCallback;
 
 
-public class KitchenActivity extends AppCompatActivity implements View.OnClickListener{
+public class KitchenActivity extends AppCompatActivity implements View.OnClickListener, OnStartDragListener {
     @Bind(R.id.addFoodItemButton) Button mStockKitchenButton;
     @Bind(R.id.foodItemRecyclerView) RecyclerView  mFoodItemRecyclerView;
 
-
-
-
     private DatabaseReference mKitchenReference;
-    private FirebaseRecyclerAdapter mFirebaseRecyclerAdapter;
-
+    private FirebaseKitchenAdapter mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
 
 
     @Override
@@ -40,12 +43,7 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_items_on_list);
         ButterKnife.bind(this);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mKitchenReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_KITCHEN).child(uid);
         setUpFirebaseAdapter();
-
 
         mStockKitchenButton.setOnClickListener(this);
 
@@ -60,27 +58,34 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void setUpFirebaseAdapter(){
-        mFirebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Food, FirebaseKitchenViewHolder>(Food.class, R.layout.food_list_item, FirebaseKitchenViewHolder.class,mKitchenReference) {
-            @Override
-            protected void populateViewHolder(FirebaseKitchenViewHolder viewHolder, Food model, int position) {
-                viewHolder.bindKitchen(model);
-            }
-        };
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mKitchenReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_KITCHEN).child(uid);
+
+        mFirebaseAdapter = new FirebaseKitchenAdapter(Food.class, R.layout.food_list_item, FirebaseKitchenViewHolder.class,mKitchenReference,this,this);
 
         mFoodItemRecyclerView.setHasFixedSize(true);
         mFoodItemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mFoodItemRecyclerView.setAdapter(mFirebaseRecyclerAdapter);
+        mFoodItemRecyclerView.setAdapter(mFirebaseAdapter);
 
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mFoodItemRecyclerView);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mFirebaseRecyclerAdapter.cleanup();
+        mFirebaseAdapter.cleanup();
     }
 
 
-
+    @Override
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 }
 
 

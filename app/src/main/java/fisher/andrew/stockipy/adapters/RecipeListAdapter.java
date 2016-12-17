@@ -25,9 +25,13 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private Context context;
 
+
     public RecipeListAdapter(ArrayList<Recipe> mRecipes, Context context) {
         this.mRecipes = mRecipes;
         this.context = context;
+
+
+
     }
 
     @Override
@@ -39,6 +43,8 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
 
     @Override
     public void onBindViewHolder(RecipeListAdapter.RecipeViewHolder holder, final int position){
+
+
         holder.bindRecipes(mRecipes.get(position));
     }
 
@@ -52,7 +58,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         @Bind(R.id.foodImageView) ImageView  mFoodImage;
         @Bind(R.id.foodTitle) TextView mFoodTitle;
         private Context mContext;
-//        private int mOrientation;
         private Recipe currentRecipe;
         public RecipeViewHolder(View itemView){
             super(itemView);
@@ -60,10 +65,7 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             mContext = itemView.getContext();
             itemView.setOnClickListener(this);
 
-//            mOrientation = itemView.getResources().getConfiguration().orientation;
-//            if(mOrientation == Configuration.ORIENTATION_LANDSCAPE){
-//                createDetailFragment(0);
-//            }
+
         }
         public void bindRecipes(Recipe recipe){
             Picasso.with(mContext).load(recipe.getImage()).into(mFoodImage);
@@ -73,26 +75,19 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         @Override
         public void onClick(View v) {
 
-            //triggered when user click on an instance of the recycler view
             int itemPosition = getLayoutPosition();
 
-//            if(mOrientation ==Configuration.ORIENTATION_LANDSCAPE){
-//                createDetailFragment(itemPosition);
-//            }else{
+
                 Intent intent = new Intent(mContext, RecipeDetailActivity.class);
                 currentRecipe = mRecipes.get(itemPosition);
                 intent.putExtra("recipe", Parcels.wrap(currentRecipe));
                 mContext.startActivity(intent);
-//            }
+
 
 
         }
 
-//        private void createDetailFragment(int position){
-//            RecipeDetailFragment detailFragment = RecipeDetailFragment.newInstance(currentRecipe);
-//            FragmentTransaction ft = ((FragmentActivity) mContext);
-//            ft.commit();
-//        }
+
     }
 
 
