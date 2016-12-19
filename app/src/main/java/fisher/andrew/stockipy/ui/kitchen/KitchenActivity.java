@@ -76,12 +76,6 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
         mItemTouchHelper.attachToRecyclerView(mFoodItemRecyclerView);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
-    }
-
 
     @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {

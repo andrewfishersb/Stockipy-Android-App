@@ -88,7 +88,12 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
     public void onItemDismiss(int position) {
         //delete swiped item
         mKitchenFood.remove(position);
+
+        //this?
+        notifyItemRemoved(position);
+
         getRef(position).removeValue();
+
     }
 
     //will resign index property of each item
