@@ -5,7 +5,6 @@ import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ChildEventListener;
@@ -15,6 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import fisher.andrew.stockipy.models.Food;
 import fisher.andrew.stockipy.util.ItemTouchHelperAdapter;
@@ -79,6 +79,7 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+        Collections.swap(mKitchenFood, fromPosition, toPosition);
         notifyItemChanged(fromPosition,toPosition);
         return false;
     }
@@ -87,5 +88,22 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
     public void onItemDismiss(int position) {
         //delete swiped item
         getRef(position).removeValue();
+    }
+
+    //will resign index property of each item
+    private void setIndexInFirebase(){
+        for(Food item : mKitchenFood){
+            int index = mKitchenFood.indexOf(item);
+            DatabaseReference ref = getRef(index);
+            item.setIndex(Integer.toString(index));
+            ref.setValue(item);
+        }
+    }
+
+    @Override
+    public void cleanup(){
+        super.cleanup();
+        setIndexInFirebase();
+        mRef.removeEventListener(mChildEventListener);
     }
 }

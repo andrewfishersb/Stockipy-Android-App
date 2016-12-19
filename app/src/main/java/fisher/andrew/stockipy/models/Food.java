@@ -33,6 +33,13 @@ public class Food {
         return pushId;
     }
 
+    public void setIndex(String index) {
+        this.index = index;
+    }
+
+    public String getIndex() {
+        return index;
+    }
 
 
 
