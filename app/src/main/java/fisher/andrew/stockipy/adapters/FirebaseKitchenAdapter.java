@@ -80,13 +80,14 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
         Collections.swap(mKitchenFood, fromPosition, toPosition);
-        notifyItemChanged(fromPosition,toPosition);
+        notifyItemMoved(fromPosition,toPosition);
         return false;
     }
 
     @Override
     public void onItemDismiss(int position) {
         //delete swiped item
+        mKitchenFood.remove(position);
         getRef(position).removeValue();
     }
 

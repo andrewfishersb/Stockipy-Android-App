@@ -2,10 +2,8 @@ package fisher.andrew.stockipy.util;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.widget.Toast;
 
 public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback implements GestureDetector.OnGestureListener {
     private final ItemTouchHelperAdapter mAdapter;
@@ -48,9 +46,10 @@ public class SimpleItemTouchHelperCallback extends ItemTouchHelper.Callback impl
 
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int i) {
-        if(i==ItemTouchHelper.LEFT){
-            Log.d("It swiped","left");
-        }
+        //figure out direction
+//        if(i==ItemTouchHelper.LEFT){
+//            Log.d("It swiped","left");
+//        }
         mAdapter.onItemDismiss(viewHolder.getAdapterPosition());
     }
 

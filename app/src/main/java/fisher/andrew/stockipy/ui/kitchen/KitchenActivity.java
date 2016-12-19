@@ -9,8 +9,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 import android.widget.Button;
 
-import com.daimajia.swipe.SwipeLayout;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +22,6 @@ import fisher.andrew.stockipy.R;
 import fisher.andrew.stockipy.adapters.FirebaseKitchenAdapter;
 import fisher.andrew.stockipy.adapters.FirebaseKitchenViewHolder;
 import fisher.andrew.stockipy.models.Food;
-import fisher.andrew.stockipy.util.ItemTouchHelperAdapter;
 import fisher.andrew.stockipy.util.OnStartDragListener;
 import fisher.andrew.stockipy.util.SimpleItemTouchHelperCallback;
 
@@ -67,6 +64,7 @@ public class KitchenActivity extends AppCompatActivity implements View.OnClickLi
                 .getReference(Constants.FIREBASE_CHILD_KITCHEN)
                 .child(uid)
                 .orderByChild(Constants.FIREBASE_QUERY_INDEX);
+
         mFirebaseAdapter = new FirebaseKitchenAdapter(Food.class, R.layout.food_list_item, FirebaseKitchenViewHolder.class,query,this,this);
 
         mFoodItemRecyclerView.setHasFixedSize(true);

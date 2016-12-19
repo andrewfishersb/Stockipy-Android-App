@@ -11,6 +11,9 @@ import fisher.andrew.stockipy.models.Recipe;
 import fisher.andrew.stockipy.util.ItemTouchHelperAdapter;
 import fisher.andrew.stockipy.util.OnStartDragListener;
 
+
+
+//IS THIS EVEN NEEDED???
 public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder> implements ItemTouchHelperAdapter {
     private DatabaseReference mRef;
     private Context mContext;
