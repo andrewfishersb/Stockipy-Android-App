@@ -66,7 +66,7 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
     @Override
     protected void populateViewHolder(final FirebaseKitchenViewHolder viewHolder, Food model, int position) {
         viewHolder.bindKitchen(model);
-        viewHolder.mKitchenItemTextView.setOnTouchListener(new View.OnTouchListener(){
+        viewHolder.mDragToReOrderKitchenItem.setOnTouchListener(new View.OnTouchListener(){
             @Override
             public boolean onTouch(View v, MotionEvent event){
                 if(MotionEventCompat.getActionMasked(event)==MotionEvent.ACTION_DOWN){
@@ -88,10 +88,6 @@ public class FirebaseKitchenAdapter extends FirebaseRecyclerAdapter<Food, Fireba
     public void onItemDismiss(int position) {
         //delete swiped item
         mKitchenFood.remove(position);
-
-        //this?
-        notifyItemRemoved(position);
-
         getRef(position).removeValue();
 
     }

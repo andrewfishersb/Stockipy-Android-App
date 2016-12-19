@@ -3,6 +3,7 @@ package fisher.andrew.stockipy.adapters;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import fisher.andrew.stockipy.R;
@@ -13,7 +14,8 @@ import fisher.andrew.stockipy.models.Food;
  */
 
 public class FirebaseKitchenViewHolder extends RecyclerView.ViewHolder {
-    public TextView mKitchenItemTextView;
+//    public TextView mKitchenItemTextView;
+    public ImageView mDragToReOrderKitchenItem;
     View mView;
     Context mContext;
 
@@ -24,9 +26,13 @@ public class FirebaseKitchenViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bindKitchen(Food item){
-        mKitchenItemTextView = (TextView) mView.findViewById(R.id.foodListItem);
+       TextView mKitchenItemTextView = (TextView) mView.findViewById(R.id.foodListItem);
         mKitchenItemTextView.setText(item.getName());
 
+        mDragToReOrderKitchenItem = (ImageView) mView.findViewById(R.id.reorderFoodItem);
+
+        //donr need because it already exists and wont be changed
+//        Picasso.with(mContext).load().into(mDragToReOrderKitchenItem);
     }
 
 
