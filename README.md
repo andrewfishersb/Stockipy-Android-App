@@ -65,10 +65,7 @@ This a multi-purpose app, combining shopping lists and recipes. A User can look 
 ## Future Goals and Ideas
 * use overflow menu on every page to log out or go to different parts of the page
 * when user signs up for the first time have a view that tells the user to search for a recipe in the top bar - on the recipe activity
-* Make api call o n homepage so it doesnt load everytime I press back orfind recipe (or on the search page when i create it).
 * make input only one line for new items
-* Remove back to list button once a database is set up and use the up top button instead
-* Add items and don't go back until user says so - maybe implement a toolbar so one can send information back
 * With ingredients on shopping list, swipe to delete or add to the fridge
 * When adding an item use a dialog on the same activity instead of a new page
 * When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
