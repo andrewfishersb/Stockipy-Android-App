@@ -6,6 +6,10 @@
 
 ## Description
 This a multi-purpose app, combining shopping lists and recipes. A User can look up recipes using the Edamam API, add and delete items from a shopping cart, and keep track of items in your kitchen.
+
+![recipe1](https://cloud.githubusercontent.com/assets/17396138/25404740/eba19498-29b5-11e7-9c30-be49734910ef.jpg)
+![recipe2](https://cloud.githubusercontent.com/assets/17396138/25404741/eba8939c-29b5-11e7-8a70-1c5f84641e9f.jpg)
+
 ## Specifications
 
 
