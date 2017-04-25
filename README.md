@@ -67,17 +67,13 @@ This a multi-purpose app, combining shopping lists and recipes. A User can look 
 
 
 ## Future Goals and Ideas
-* use overflow menu on every page to log out or go to different parts of the page
-* when user signs up for the first time have a view that tells the user to search for a recipe in the top bar - on the recipe activity
-* make input only one line for new items
-* With ingredients on shopping list, swipe to delete or add to the fridge
-* When adding an item use a dialog on the same activity instead of a new page
-* When adding an item to shopping cart, if its in your fridge it will ask if you are sure you want to add it
+* Use hamburger slider
+* Add items using a dialog box or without switching pages
+* Implement a Fridge List (Removed originaly for splicity sake).
+* Add ingredients from recipe to shopping cart.
 * Dialog box which displays all ingredients and check boxes for what to add to your shopping list
-* Drop down menu or tool bar that has quick ways to navigate towards
-* Set number of a specific items or cups/tablespoons left of some item (reach goal)
 * suggestion when start typing an ingredient (reach goal) - would be good with API integration
-* categorize recipe cuisine (reach goal)
+
 
 
 
