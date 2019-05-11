@@ -1,4 +1,4 @@
-# Stockipy
+# Stockipy (DEPRECIATED --- THE API USED NO LONGER EXISTS)
 
 #### By **Andrew Fisher**
 
